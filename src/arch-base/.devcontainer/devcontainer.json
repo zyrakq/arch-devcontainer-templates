@@ -1,0 +1,14 @@
+{
+    "name": "${templateOption:projectName} Workspace (Archlinux)",
+    "dockerComposeFile": ["docker/docker-compose.yml", "docker/${localEnv:DOCKER_COMPOSE_FILE:docker-compose.yml}"],
+    "service": "${templateOption:projectName}-workspace",
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/workspace/${templateOption:projectName}",
+    "remoteUser": "vscode",
+    "remoteEnv": {
+        "REPO_URL": "${templateOption:repoUrl}",
+        "WORKSPACE_FOLDER": "/workspace/${templateOption:projectName}"
+    },
+    "forwardPorts": ["${templateOption:forwardPort}"],
+    "postCreateCommand": "${HOME}/setup_container.sh && ${HOME}/clone-repo.sh"
+}

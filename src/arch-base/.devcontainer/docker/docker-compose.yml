@@ -1,0 +1,20 @@
+services:
+  ${templateOption:projectName}-workspace:
+    container_name: ${templateOption:projectName}-workspace
+    build: .
+    working_dir: /workspace/${templateOption:projectName}
+    volumes:
+      - ${templateOption:projectName}-home:/home/vscode
+      - ${templateOption:projectName}-workspace:/workspace/${templateOption:projectName}
+    networks: 
+      - ${templateOption:projectName}-workspace-network
+
+volumes:
+  ${templateOption:projectName}-home:
+    name: ${templateOption:projectName}-home
+  ${templateOption:projectName}-workspace:
+    name: ${templateOption:projectName}-workspace
+
+networks: 
+  ${templateOption:projectName}-workspace-network:
+    name: ${templateOption:projectName}-workspace-network
