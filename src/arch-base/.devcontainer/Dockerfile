@@ -1,28 +1,18 @@
-FROM archlinux/archlinux:base
+ARG VARIANT="latest"
+FROM docker.io/archlinux/archlinux:${VARIANT}
 
-ARG USERNAME=vscode
-ARG PUID=1000
-ARG PGID=1000
-ARG HOME=/home/$USERNAME
+LABEL org.opencontainers.image.title="Arch Linux Base Image"
+LABEL org.opencontainers.image.source="https://github.com/zeritiq/arch-devcontainer-templates"
+LABEL org.opencontainers.image.description="Simple Arch Linux container with common tools installed"
+LABEL org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.authors="Zeritiq <serg.shehov@tutanota.com>"
 
-RUN pacman -Syu --noconfirm
+# Adjust directory permissions
+RUN chmod 555 /srv/ftp && \
+    chmod 755 /usr/share/polkit-1/rules.d/
 
-RUN pacman -Sy \
-    base-devel \
-    git \
-    bash \
-    sudo \
-    openssh \
-    --noconfirm
-
-# Create the user
-RUN groupadd --gid $PGID $USERNAME \
-    && useradd --uid $PUID --gid $PGID -G wheel -s /bin/bash -m -d $HOME -p $USERNAME $USERNAME \
-    && echo '%wheel ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/wheel \
-    && chmod 0440 /etc/sudoers.d/wheel
-
-USER $USERNAME
-
-WORKDIR $HOME
-
-ENTRYPOINT [ "sleep", "infinity" ]
+# Initialize pacman keyring and upgrade system
+RUN pacman-key --init && \
+    pacman-key --populate archlinux && \
+    pacman -Sy --needed --noconfirm --disable-download-timeout archlinux-keyring && \
+    pacman -Su --noconfirm --disable-download-timeout

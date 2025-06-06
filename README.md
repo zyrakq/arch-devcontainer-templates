@@ -14,10 +14,25 @@ A collection of templates for VS Code Dev Containers, designed for quick develop
 
 ### arch-base
 Base template based on Arch Linux with:
-- Git, SSH, and base development tools
-- Configurable user and permissions (vscode user)
+- Minimal Arch Linux base image
+- DevContainer features for modular functionality
 - Separate volumes for home directory and workspace
 - Custom network isolation
+
+## Available Features
+
+| Feature | Repository |
+|---------|------------|
+| common-utils | `ghcr.io/bartventer/arch-devcontainer-features/common-utils` |
+| aws-cli | `ghcr.io/bartventer/arch-devcontainer-features/aws-cli` |
+| azure-cli | `ghcr.io/bartventer/arch-devcontainer-features/azure-cli` |
+| gcloud-cli | `ghcr.io/bartventer/arch-devcontainer-features/gcloud-cli` |
+| go | `ghcr.io/bartventer/arch-devcontainer-features/go` |
+| terraform | `ghcr.io/bartventer/arch-devcontainer-features/terraform` |
+| docker-in-docker | `ghcr.io/bartventer/arch-devcontainer-features/docker-in-docker` |
+| docker-outside-of-docker | `ghcr.io/bartventer/arch-devcontainer-features/docker-outside-of-docker` |
+| yay | `ghcr.io/zeritiq/arch-devcontainer-features/yay` |
+| clone-repo | `ghcr.io/zeritiq/arch-devcontainer-features/clone-repo` |
 
 ## Template Parameters
 

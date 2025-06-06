@@ -1,7 +1,20 @@
 {
     "name": "${templateOption:projectName} Workspace (Archlinux)",
     "build": {
-        "dockerfile": "Dockerfile"
+        "dockerfile": "Dockerfile",
+        "context": ".",
+        "args": {
+        "VARIANT": "latest"
+        }
+    },
+    "features": {
+        "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
+            "username": "vscode",
+            "additionalPackages": "base-devel git bash sudo openssh",
+            "installZsh": true,
+            "installOhMyZsh": true,
+            "configureZshAsDefaultShell": true
+        }
     },
     "workspaceFolder": "/workspace/${templateOption:projectName}",
     "workspaceMount": "source=${templateOption:projectName}-workspace,target=/workspace/${templateOption:projectName},type=volume",
