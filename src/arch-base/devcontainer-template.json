@@ -10,16 +10,6 @@
             "type": "string",
             "default": "my-project",
             "description": "Project name (used for container and network names)"
-        },
-        "repoUrl": {
-            "type": "string",
-            "default": "",
-            "description": "Git repository URL to clone (optional)"
-        },
-        "forwardPort": {
-            "type": "string",
-            "default": "8080",
-            "description": "Port to forward to host"
         }
     },
     "platforms": [
