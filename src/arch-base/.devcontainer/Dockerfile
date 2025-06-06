@@ -25,15 +25,4 @@ USER $USERNAME
 
 WORKDIR $HOME
 
-RUN git clone https://aur.archlinux.org/yay.git
-
-RUN cd yay && makepkg -si --noconfirm
-
-# Install additional packages from AUR if needed
-# RUN yay -Sy dotnet-host-bin dotnet-sdk-bin aspnet-runtime-bin --noconfirm
-
-COPY scripts/ .
-
-RUN sudo chmod +x setup_container.sh clone-repo.sh
-
 ENTRYPOINT [ "sleep", "infinity" ]
