@@ -17,37 +17,34 @@ Base template based on Arch Linux with:
 - Git, SSH, and base development tools
 - YAY AUR helper for additional packages
 - Configurable user and permissions (vscode user)
-- Container initialization scripts
+- Repository cloning via devcontainer feature
 - Separate volumes for home directory and workspace
+- Custom network isolation
 
 ## Template Parameters
 
 When using the template, you'll be prompted to specify:
 - **Project Name**: Project name (used for container and network names)
 - **Repository URL**: Git repository URL for cloning (optional)
-- **Forward Port**: Port to forward to host (default 8080)
 
 ## Template Structure
 
 ```
 .devcontainer/
-├── devcontainer.json           # Main configuration
-└── docker/
-    ├── docker-compose.yml      # Docker Compose configuration
-    ├── Dockerfile              # Arch Linux image with required packages
-    ├── .env                    # Environment variables (ready to use)
-    ├── .env.example            # Environment variables reference
-    └── scripts/
-        ├── setup_container.sh  # Container initialization script
-        └── clone-repo.sh       # Repository cloning script
+├── devcontainer.json           # Main configuration with features
+└── Dockerfile                  # Arch Linux image with required packages
 ```
+
+## Features Used
+
+This template uses the following devcontainer features:
+- **clone-repo**: Automatically clones a Git repository into the workspace
 
 ## Setup
 
 After creating the .devcontainer configuration:
-1. Review and adjust `.env` file if needed (`.env.example` serves as reference)
-2. Edit scripts in the `scripts/` folder if needed
-3. Run "Dev Containers: Reopen in Container"
+1. Run "Dev Containers: Reopen in Container"
+2. The repository will be automatically cloned if a URL was provided
 
 ## License
 
