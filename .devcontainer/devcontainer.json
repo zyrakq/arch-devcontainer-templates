@@ -1,16 +1,51 @@
-// More info: https://containers.dev/implementors/json_reference/
 {
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bullseye",
-	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"mads-hartmann.bash-ide-vscode",
-				"dbaeumer.vscode-eslint"
-			]
-		}
-	},
-	"postCreateCommand": "npm install -g @devcontainers/cli"
+    "name": "arch-devcontainer-templates Workspace (Archlinux)",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".",
+        "args": {
+            "VARIANT": "latest"
+        }
+    },
+    "workspaceFolder": "/workspace/arch-devcontainer-templates",
+    "workspaceMount": "source=arch-devcontainer-templates-workspace,target=/workspace/arch-devcontainer-templates,type=volume",
+    "mounts": [
+        "source=knowledge-base-home,target=/home/vscode,type=volume"
+    ],
+    "remoteUser": "vscode",
+    "runArgs": [
+        "--name", "arch-devcontainer-templates-workspace",
+        "--network=arch-devcontainer-templates-workspace-network"
+    
+    ],
+    "features": {
+        "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
+            "username": "vscode",
+            "additionalPackages": "base-devel",
+            // "additionalPackages": "base-devel nodejs npm",
+            "installZsh": true,
+            "installOhMyZsh": true,
+            "configureZshAsDefaultShell": true
+        },
+        "ghcr.io/bartventer/arch-devcontainer-features/docker-in-docker": {},
+        "ghcr.io/zeritiq/arch-devcontainer-features/yay:1": {
+            "installPackages": "act-bin"
+        },
+        "ghcr.io/zeritiq/arch-devcontainer-features/clone-repo:1": {
+            "repoUrl": "git@github.com:zeritiq/arch-devcontainer-templates.git",
+            "targetDir": "/workspace/arch-devcontainer-templates"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "mads-hartmann.bash-ide-vscode",
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    },
+    "initializeCommand": [
+        "bash", "-c", "docker network ls | grep -q arch-devcontainer-templates-workspace-network || docker network create arch-devcontainer-templates-workspace-network"
+    ]
+    // "postCreateCommand": "npm install -g @devcontainers/cli"
 }

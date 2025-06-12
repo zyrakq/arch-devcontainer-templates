@@ -7,7 +7,7 @@ A collection of templates for VS Code Dev Containers, designed for quick develop
 1. Open VS Code in your project folder
 2. Press `Ctrl+Shift+P` and select "Dev Containers: Add Dev Container Configuration Files..."
 3. Choose "Show All Definitions..."
-4. In the search field, enter this repository URL: `https://github.com/zeritiq/devcontainer-templates`
+4. In the search field, enter: `ghcr.io/zeritiq/arch-devcontainer-templates/arch-base`
 5. Select the desired template from the list
 
 ## Available Templates
@@ -47,10 +47,26 @@ When using the template, you'll be prompted to specify:
 └── Dockerfile                  # Arch Linux image with required packages
 ```
 
+## Local Testing
+
+For developers working on these templates, you can test changes locally using [Act](https://github.com/nektos/act):
+
+```bash
+# Test pull request workflow locally
+act pull_request
+```
+
+This allows you to validate template builds and tests before pushing changes to the repository.
+
 ## Setup
 
 After creating the .devcontainer configuration:
 1. Run "Dev Containers: Reopen in Container"
+
+## Related Projects
+
+This project was inspired by and borrows concepts from:
+- [bartventer/devcontainer-images](https://github.com/bartventer/devcontainer-images/) - Comprehensive collection of Dev Container images and features
 
 ## License
 
