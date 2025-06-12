@@ -1,0 +1,19 @@
+# Subject line (no more than 50 characters, start with imperative verb)
+
+# What was done? (no more than 72 characters per line)
+
+# Why was this done? (no more than 72 characters per line)
+
+# Issue: [number](link_to_issue)
+
+# ----------------------------------------------------------------------
+# Commit formatting rules:
+# 1. Subject line should not exceed 50 characters
+# 2. Subject line should start with imperative verb (Add, Fix, Update, etc.)
+# 3. Description lines should not exceed 72 characters
+# 4. Description should be in English
+# 5. Don't put a period at the end of line unless there's a second sentence
+# 6. Blocks should be separated by empty lines
+# 7. First block: what was done (required)
+# 8. Second block: why this was done (required)
+# 9. Third block: issue link in format "Issue: [number](link)"
