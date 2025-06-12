@@ -4,16 +4,7 @@
         "dockerfile": "Dockerfile",
         "context": ".",
         "args": {
-        "VARIANT": "latest"
-        }
-    },
-    "features": {
-        "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
-            "username": "vscode",
-            "additionalPackages": "base-devel git bash sudo openssh",
-            "installZsh": true,
-            "installOhMyZsh": true,
-            "configureZshAsDefaultShell": true
+            "VARIANT": "latest"
         }
     },
     "workspaceFolder": "/workspace/${templateOption:projectName}",
@@ -27,6 +18,15 @@
         "--network=${templateOption:projectName}-workspace-network"
     
     ],
+    "features": {
+        "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
+            "username": "vscode",
+            "additionalPackages": "base-devel",
+            "installZsh": true,
+            "installOhMyZsh": true,
+            "configureZshAsDefaultShell": true
+        }
+    },
     "initializeCommand": [
         "bash", "-c", "docker network ls | grep -q ${templateOption:projectName}-workspace-network || docker network create ${templateOption:projectName}-workspace-network"
     ]

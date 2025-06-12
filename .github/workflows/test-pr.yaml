@@ -8,12 +8,12 @@ jobs:
     outputs:
       templates: ${{ steps.filter.outputs.changes }}
     steps:
+      - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
         id: filter
         with:
           filters: |
-            color: ./**/color/**
-            hello: ./**/hello/**
+            arch-base: ./**/arch-base/**
 
   test:
     needs: [detect-changes]

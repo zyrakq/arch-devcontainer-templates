@@ -40,8 +40,8 @@ jobs:
           git checkout -b $branch
           message='Automated documentation update'
 
-          # Add / update and commit
-          git add */**/README.md
+          # Add / update and commit (only from src/ directory)
+          git add src/**/README.md
           git commit -m 'Automated documentation update [skip ci]' || export NO_UPDATES=true
 
           # Push
