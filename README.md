@@ -1,45 +1,46 @@
-# Dev Container Templates
+# 🐳 Dev Container Templates
 
 A collection of templates for VS Code Dev Containers, designed for quick development environment setup.
 
-## Usage
+## 🚀 Usage
 
-1. Open VS Code in your project folder
-2. Press `Ctrl+Shift+P` and select "Dev Containers: Add Dev Container Configuration Files..."
-3. Choose "Show All Definitions..."
-4. In the search field, enter: `ghcr.io/zeritiq/arch-devcontainer-templates/arch-base`
-5. Select the desired template from the list
+1. 📂 Open VS Code in your project folder
+2. ⌨️ Press `Ctrl+Shift+P` and select "Dev Containers: Add Dev Container Configuration Files..."
+3. 📋 Choose "Show All Definitions..."
+4. 🔍 In the search field, enter: `ghcr.io/zeritiq/arch-devcontainer-templates/arch-base`
+5. ✅ Select the desired template from the list
 
-## Available Templates
+## 📦 Available Templates
 
-### arch-base
+### 🏗️ arch-base
 Base template based on Arch Linux with:
-- Minimal Arch Linux base image
-- DevContainer features for modular functionality
-- Separate volumes for home directory and workspace
-- Custom network isolation
+- 🐧 Minimal Arch Linux base image
+- 🔧 DevContainer features for modular functionality
+- 💾 Separate volumes for home directory and workspace
+- 🔒 Custom network isolation
 
-## Available Features
+## ⚡ Available Features
 
 | Feature | Repository |
 |---------|------------|
-| common-utils | `ghcr.io/bartventer/arch-devcontainer-features/common-utils` |
-| aws-cli | `ghcr.io/bartventer/arch-devcontainer-features/aws-cli` |
-| azure-cli | `ghcr.io/bartventer/arch-devcontainer-features/azure-cli` |
-| gcloud-cli | `ghcr.io/bartventer/arch-devcontainer-features/gcloud-cli` |
-| go | `ghcr.io/bartventer/arch-devcontainer-features/go` |
-| terraform | `ghcr.io/bartventer/arch-devcontainer-features/terraform` |
-| docker-in-docker | `ghcr.io/bartventer/arch-devcontainer-features/docker-in-docker` |
-| docker-outside-of-docker | `ghcr.io/bartventer/arch-devcontainer-features/docker-outside-of-docker` |
-| yay | `ghcr.io/zeritiq/arch-devcontainer-features/yay` |
-| clone-repo | `ghcr.io/zeritiq/arch-devcontainer-features/clone-repo` |
+| 🛠️ common-utils | `ghcr.io/bartventer/arch-devcontainer-features/common-utils` |
+| ☁️ aws-cli | `ghcr.io/bartventer/arch-devcontainer-features/aws-cli` |
+| 🔵 azure-cli | `ghcr.io/bartventer/arch-devcontainer-features/azure-cli` |
+| 🌐 gcloud-cli | `ghcr.io/bartventer/arch-devcontainer-features/gcloud-cli` |
+| 🐹 go | `ghcr.io/bartventer/arch-devcontainer-features/go` |
+| 🏗️ terraform | `ghcr.io/bartventer/arch-devcontainer-features/terraform` |
+| 🐳 docker-in-docker | `ghcr.io/bartventer/arch-devcontainer-features/docker-in-docker` |
+| 🔗 docker-outside-of-docker | `ghcr.io/bartventer/arch-devcontainer-features/docker-outside-of-docker` |
+| 📦 yay | `ghcr.io/zeritiq/arch-devcontainer-features/yay` |
+| 📥 clone-repo | `ghcr.io/zeritiq/arch-devcontainer-features/clone-repo` |
+| 📦 node | `ghcr.io/zeritiq/arch-devcontainer-features/node` |
 
-## Template Parameters
+## ⚙️ Template Parameters
 
 When using the template, you'll be prompted to specify:
-- **Project Name**: Project name (used for container and network names)
+- 📝 **Project Name**: Project name (used for container and network names)
 
-## Template Structure
+## 📁 Template Structure
 
 ```
 .devcontainer/
@@ -47,27 +48,33 @@ When using the template, you'll be prompted to specify:
 └── Dockerfile                  # Arch Linux image with required packages
 ```
 
-## Local Testing
+## 🧪 Local Testing
 
-For developers working on these templates, you can test changes locally using [Act](https://github.com/nektos/act):
+For developers working on these templates, you can test changes locally using [Act](https://github.com/nektos/act).
+
+### ⚡ Quick Testing
 
 ```bash
-# Test pull request workflow locally
+# Test all templates (via pull request workflow)
 act pull_request
 ```
 
+### 🔍 Detailed Testing
+
+For comprehensive testing instructions, troubleshooting, and advanced usage, see [TESTING.md](TESTING.md).
+
 This allows you to validate template builds and tests before pushing changes to the repository.
 
-## Setup
+## 🔧 Setup
 
 After creating the .devcontainer configuration:
-1. Run "Dev Containers: Reopen in Container"
+1. 🔄 Run "Dev Containers: Reopen in Container"
 
-## Related Projects
+## 🔗 Related Projects
 
 This project was inspired by and borrows concepts from:
 - [bartventer/devcontainer-images](https://github.com/bartventer/devcontainer-images/) - Comprehensive collection of Dev Container images and features
 
-## License
+## 📄 License
 
 MIT
