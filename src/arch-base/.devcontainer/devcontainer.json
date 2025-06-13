@@ -10,7 +10,7 @@
     "workspaceFolder": "/workspace/${templateOption:projectName}",
     "workspaceMount": "source=${templateOption:projectName}-workspace,target=/workspace/${templateOption:projectName},type=volume",
     "mounts": [
-        "source=knowledge-base-home,target=/home/vscode,type=volume"
+        "source=${templateOption:projectName}-home,target=/home/vscode,type=volume"
     ],
     "remoteUser": "vscode",
     "runArgs": [

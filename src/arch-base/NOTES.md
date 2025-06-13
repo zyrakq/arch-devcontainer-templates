@@ -1,46 +1,46 @@
-# Arch Linux Base - Detailed Description
+# 🐧 Arch Linux Base - Detailed Description
 
-## Overview
+## 📖 Overview
 
 The **Arch Linux Base** template provides a minimalist yet powerful development environment based on Arch Linux. This template is ideal for developers who prefer flexibility and control over their development environment.
 
-## Features
+## ⚡ Features
 
 ### 🏗️ Base System
-- **Operating System**: Arch Linux (rolling release)
-- **Architectures**: linux/amd64, linux/arm64
-- **Package Manager**: pacman + AUR via yay (optional)
-- **Minimalist Approach**: only essential components
+- 🐧 **Operating System**: Arch Linux (rolling release)
+- 🏛️ **Architectures**: linux/amd64, linux/arm64
+- 📦 **Package Manager**: pacman + AUR via yay (optional)
+- ✨ **Minimalist Approach**: only essential components
 
 ### 🛠️ Pre-installed Tools
-- **Git** - version control system
-- **Curl/Wget** - download utilities
-- **Base-devel** - essential development tools
-- **SSH** - secure connection
-- **Vim/Nano** - text editors
+- 🔧 **Git** - version control system
+- 📥 **Curl/Wget** - download utilities
+- 🔨 **Base-devel** - essential development tools
+- 🔐 **SSH** - secure connection
+- ✏️ **Vim/Nano** - text editors
 
 ### 🔧 Modularity through Features
 The template supports Dev Container Features for extending functionality:
 
 | Feature | Description |
 |---------|-------------|
-| `common-utils` | Additional command-line utilities |
-| `docker-in-docker` | Docker inside container |
-| `docker-outside-of-docker` | Use host Docker |
-| `go` | Go development environment |
-| `terraform` | Infrastructure as code |
-| `aws-cli` | AWS Command Line Interface |
-| `azure-cli` | Azure Command Line Interface |
-| `gcloud-cli` | Google Cloud CLI |
-| `yay` | AUR helper for Arch Linux |
-| `clone-repo` | Automatic repository cloning |
+| 🛠️ `common-utils` | Additional command-line utilities |
+| 🐳 `docker-in-docker` | Docker inside container |
+| 🔗 `docker-outside-of-docker` | Use host Docker |
+| 🐹 `go` | Go development environment |
+| 🏗️ `terraform` | Infrastructure as code |
+| ☁️ `aws-cli` | AWS Command Line Interface |
+| 🔵 `azure-cli` | Azure Command Line Interface |
+| 🌐 `gcloud-cli` | Google Cloud CLI |
+| 📦 `yay` | AUR helper for Arch Linux |
+| 📥 `clone-repo` | Automatic repository cloning |
 
-## Configuration Parameters
+## ⚙️ Configuration Parameters
 
-### projectName
-- **Type**: string
-- **Default**: "my-project"
-- **Description**: Project name, used for container and network naming
+### 📝 projectName
+- 🔤 **Type**: string
+- 🎯 **Default**: "my-project"
+- 📋 **Description**: Project name, used for container and network naming
 
 ```json
 {
@@ -48,7 +48,7 @@ The template supports Dev Container Features for extending functionality:
 }
 ```
 
-## Project Structure
+## 📁 Project Structure
 
 After applying the template, the following structure is created:
 
@@ -58,19 +58,19 @@ After applying the template, the following structure is created:
 └── Dockerfile          # Arch Linux based image (if used)
 ```
 
-## Adding Template to Project
+## ➕ Adding Template to Project
 
 To add this template to your VS Code project:
 
-1. Open VS Code in your project folder
-2. Press `Ctrl+Shift+P` and select "Dev Containers: Add Dev Container Configuration Files..."
-3. Choose "Show All Definitions..."
-4. In the search field, enter: `ghcr.io/zeritiq/arch-devcontainer-templates/arch-base`
-5. Select the desired template from the list
+1. 📂 Open VS Code in your project folder
+2. ⌨️ Press `Ctrl+Shift+P` and select "Dev Containers: Add Dev Container Configuration Files..."
+3. 📋 Choose "Show All Definitions..."
+4. 🔍 In the search field, enter: `ghcr.io/zeritiq/arch-devcontainer-templates/arch-base`
+5. ✅ Select the desired template from the list
 
-## Usage Examples
+## 💡 Usage Examples
 
-### With Additional Features
+### 🔧 With Additional Features
 ```json
 {
   "name": "Arch Development with Go",
@@ -82,16 +82,16 @@ To add this template to your VS Code project:
 }
 ```
 
-## Network Configuration
+## 🌐 Network Configuration
 
 The template creates an isolated network for the project:
-- **Network Name**: `${projectName}-network`
-- **Type**: bridge
-- **Isolation**: complete isolation from other projects
+- 🏷️ **Network Name**: `${projectName}-network`
+- 🔗 **Type**: bridge
+- 🔒 **Isolation**: complete isolation from other projects
 
-## Volume Management
+## 💾 Volume Management
 
-### Recommended Volumes
+### 📦 Recommended Volumes
 ```json
 {
   "mounts": [
@@ -101,9 +101,9 @@ The template creates an isolated network for the project:
 }
 ```
 
-## Package Installation
+## 📦 Package Installation
 
-### Via pacman
+### 🐧 Via pacman
 ```bash
 # Update system
 sudo pacman -Syu
@@ -112,35 +112,35 @@ sudo pacman -Syu
 sudo pacman -S package-name
 ```
 
-### Via AUR (with yay feature)
+### 📥 Via AUR (with yay feature)
 ```bash
 # Install from AUR
 yay -S aur-package-name
 ```
 
-## Usage Recommendations
+## 💡 Usage Recommendations
 
 ### 🎯 Perfect for:
-- Systems programming
-- Go, Rust, C/C++ development
-- DevOps and automation
-- Experimenting with latest technologies
-- Custom development environment setup
+- 🔧 Systems programming
+- 🐹 Go, Rust, C/C++ development
+- 🚀 DevOps and automation
+- 🧪 Experimenting with latest technologies
+- ⚙️ Custom development environment setup
 
 ### ⚠️ Consider:
-- Arch Linux is rolling release, requires regular updates
-- Minimalist approach - need to install additional packages
-- Requires basic Linux knowledge
+- 🔄 Arch Linux is rolling release, requires regular updates
+- ✨ Minimalist approach - need to install additional packages
+- 🐧 Requires basic Linux knowledge
 
 ### 🔧 Post-creation setup:
-1. Update system: `sudo pacman -Syu`
-2. Install required packages
-3. Configure Git: `git config --global user.name "Your Name"`
-4. Set up SSH keys if needed
+1. 🔄 Update system: `sudo pacman -Syu`
+2. 📦 Install required packages
+3. 🔧 Configure Git: `git config --global user.name "Your Name"`
+4. 🔐 Set up SSH keys if needed
 
-## Troubleshooting
+## 🔧 Troubleshooting
 
-### Package Issues
+### 📦 Package Issues
 ```bash
 # Clear pacman cache
 sudo pacman -Sc
@@ -149,9 +149,9 @@ sudo pacman -Sc
 sudo pacman-key --refresh-keys
 ```
 
-## Extending the Template
+## 🔧 Extending the Template
 
-### Adding Post Scripts
+### 📝 Adding Post Scripts
 ```json
 {
   "postCreateCommand": "bash .devcontainer/setup.sh",
@@ -159,14 +159,14 @@ sudo pacman-key --refresh-keys
 }
 ```
 
-## Support and Community
+## 🤝 Support and Community
 
-- **Documentation**: [GitHub Repository](https://github.com/zeritiq/devcontainer-templates)
-- **Issues**: Report issues via GitHub Issues
-- **Arch Wiki**: [Arch Linux Wiki](https://wiki.archlinux.org/)
-- **Dev Containers**: [Official Documentation](https://containers.dev/)
-- **Related Projects**: [bartventer/devcontainer-images](https://github.com/bartventer/devcontainer-images/) - Comprehensive collection of Dev Container images and features
+- 📚 **Documentation**: [GitHub Repository](https://github.com/zeritiq/devcontainer-templates)
+- 🐛 **Issues**: Report issues via GitHub Issues
+- 📖 **Arch Wiki**: [Arch Linux Wiki](https://wiki.archlinux.org/)
+- 🐳 **Dev Containers**: [Official Documentation](https://containers.dev/)
+- 🔗 **Related Projects**: [bartventer/devcontainer-images](https://github.com/bartventer/devcontainer-images/) - Comprehensive collection of Dev Container images and features
 
-## License
+## 📄 License
 
 MIT License - see [LICENSE](https://github.com/zeritiq/devcontainer-templates/blob/main/LICENSE)
