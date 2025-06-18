@@ -7,7 +7,7 @@ A collection of templates for VS Code Dev Containers, designed for quick develop
 1. 📂 Open VS Code in your project folder
 2. ⌨️ Press `Ctrl+Shift+P` and select "Dev Containers: Add Dev Container Configuration Files..."
 3. 📋 Choose "Show All Definitions..."
-4. 🔍 In the search field, enter: `ghcr.io/zeritiq/arch-devcontainer-templates/arch-base`
+4. 🔍 In the search field, enter: `ghcr.io/zyrakq/arch-devcontainer-templates/arch-base`
 5. ✅ Select the desired template from the list
 
 ## 📦 Available Templates
@@ -31,9 +31,9 @@ Base template based on Arch Linux with:
 | 🏗️ terraform | `ghcr.io/bartventer/arch-devcontainer-features/terraform` |
 | 🐳 docker-in-docker | `ghcr.io/bartventer/arch-devcontainer-features/docker-in-docker` |
 | 🔗 docker-outside-of-docker | `ghcr.io/bartventer/arch-devcontainer-features/docker-outside-of-docker` |
-| 📦 yay | `ghcr.io/zeritiq/arch-devcontainer-features/yay` |
-| 📥 clone-repo | `ghcr.io/zeritiq/arch-devcontainer-features/clone-repo` |
-| 📦 node | `ghcr.io/zeritiq/arch-devcontainer-features/node` |
+| 📦 yay | `ghcr.io/zyrakq/arch-devcontainer-features/yay` |
+| 📥 clone-repo | `ghcr.io/zyrakq/arch-devcontainer-features/clone-repo` |
+| 📦 node | `ghcr.io/zyrakq/arch-devcontainer-features/node` |
 
 ## ⚙️ Template Parameters
 

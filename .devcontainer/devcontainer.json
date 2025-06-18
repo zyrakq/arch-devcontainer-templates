@@ -31,14 +31,14 @@
             "configureZshAsDefaultShell": true
         },
         "ghcr.io/bartventer/arch-devcontainer-features/docker-in-docker": {},
-        "ghcr.io/zeritiq/arch-devcontainer-features/yay:1": {
+        "ghcr.io/zyrakq/arch-devcontainer-features/yay:1": {
             "installPackages": "act-bin"
         },
-        "ghcr.io/zeritiq/arch-devcontainer-features/node:1": {
+        "ghcr.io/zyrakq/arch-devcontainer-features/node:1": {
             "globalPackages": "@devcontainers/cli"
         },
-        "ghcr.io/zeritiq/arch-devcontainer-features/clone-repo:1": {
-            "repoUrl": "git@github.com:zeritiq/arch-devcontainer-templates.git",
+        "ghcr.io/zyrakq/arch-devcontainer-features/clone-repo:1": {
+            "repoUrl": "git@github.com:zyrakq/arch-devcontainer-templates.git",
             "targetDir": "/workspace/arch-devcontainer-templates"
         }
     },

@@ -66,7 +66,7 @@ To add this template to your VS Code project:
 1. 📂 Open VS Code in your project folder
 2. ⌨️ Press `Ctrl+Shift+P` and select "Dev Containers: Add Dev Container Configuration Files..."
 3. 📋 Choose "Show All Definitions..."
-4. 🔍 In the search field, enter: `ghcr.io/zeritiq/arch-devcontainer-templates/arch-base`
+4. 🔍 In the search field, enter: `ghcr.io/zyrakq/arch-devcontainer-templates/arch-base`
 5. ✅ Select the desired template from the list
 
 ## 💡 Usage Examples
@@ -162,7 +162,7 @@ sudo pacman-key --refresh-keys
 
 ## 🤝 Support and Community
 
-- 📚 **Documentation**: [GitHub Repository](https://github.com/zeritiq/devcontainer-templates)
+- 📚 **Documentation**: [GitHub Repository](https://github.com/zyrakq/devcontainer-templates)
 - 🐛 **Issues**: Report issues via GitHub Issues
 - 📖 **Arch Wiki**: [Arch Linux Wiki](https://wiki.archlinux.org/)
 - 🐳 **Dev Containers**: [Official Documentation](https://containers.dev/)
@@ -170,4 +170,4 @@ sudo pacman-key --refresh-keys
 
 ## 📄 License
 
-MIT License - see [LICENSE](https://github.com/zeritiq/devcontainer-templates/blob/main/LICENSE)
+MIT License - see [LICENSE](https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE)

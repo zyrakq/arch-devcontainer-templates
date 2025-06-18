@@ -2,10 +2,10 @@ ARG VARIANT="latest"
 FROM docker.io/archlinux/archlinux:${VARIANT}
 
 LABEL org.opencontainers.image.title="Arch Linux Base Image"
-LABEL org.opencontainers.image.source="https://github.com/zeritiq/arch-devcontainer-templates"
+LABEL org.opencontainers.image.source="https://github.com/zyrakq/arch-devcontainer-templates"
 LABEL org.opencontainers.image.description="Simple Arch Linux container with common tools installed"
 LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.authors="Zeritiq <serg.shehov@tutanota.com>"
+LABEL org.opencontainers.image.authors="Zyrakq <serg.shehov@tutanota.com>"
 
 # Adjust directory permissions
 RUN chmod 555 /srv/ftp && \

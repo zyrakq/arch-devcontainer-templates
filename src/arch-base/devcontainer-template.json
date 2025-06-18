@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "name": "Arch Linux Base",
     "description": "A development container based on Arch Linux with Docker, Git, and essential tools",
-    "documentationURL": "https://github.com/zeritiq/devcontainer-templates/tree/main/src/arch-base",
-    "licenseURL": "https://github.com/zeritiq/devcontainer-templates/blob/main/LICENSE",
+    "documentationURL": "https://github.com/zyrakq/devcontainer-templates/tree/main/src/arch-base",
+    "licenseURL": "https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE",
     "options": {
         "projectName": {
             "type": "string",
