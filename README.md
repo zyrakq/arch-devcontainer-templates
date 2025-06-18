@@ -74,6 +74,8 @@ After creating the .devcontainer configuration:
 
 This project was inspired by and borrows concepts from:
 - [bartventer/devcontainer-images](https://github.com/bartventer/devcontainer-images/) - Comprehensive collection of Dev Container images and features
+- [bartventer/arch-devcontainer-features](https://github.com/bartventer/arch-devcontainer-features/) - DevContainer features for Arch Linux by bartventer
+- [zyrakq/arch-devcontainer-features](https://github.com/zyrakq/arch-devcontainer-features/) - Additional DevContainer features for Arch Linux
 
 ## 📄 License
 
