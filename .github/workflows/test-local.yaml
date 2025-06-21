@@ -1,0 +1,40 @@
+name: "Local Testing - All Templates"
+on:
+  workflow_dispatch:
+    inputs:
+      template:
+        description: 'Template to test (leave empty for all)'
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  test-single:
+    if: ${{ github.event.inputs.template != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Test specific template '${{ github.event.inputs.template }}'
+        uses: ./.github/actions/smoke-test
+        with:
+          template: "${{ github.event.inputs.template }}"
+
+  test-all:
+    if: ${{ github.event.inputs.template == '' }}
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        templates: 
+          - arch-base
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Test template '${{ matrix.templates }}'
+        uses: ./.github/actions/smoke-test
+        with:
+          template: "${{ matrix.templates }}"

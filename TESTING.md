@@ -23,11 +23,46 @@ choco install act-cli
 
 ## 🚀 Local testing
 
+### 🔄 Testing changed templates (original workflow)
 ```bash
 act pull_request
 ```
 
-## 🏗️ Testing structure
+### 🧪 Testing all templates (new workflow)
+```bash
+# Test all templates
+act workflow_dispatch -W .github/workflows/test-local.yaml
+```
+
+### 🎯 Testing specific template
+```bash
+# Test specific template
+act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-base
+```
+
+### 🛠️ Manual testing
+```bash
+# Direct smoke-test execution for specific template
+./.github/actions/smoke-test/build.sh arch-base
+./.github/actions/smoke-test/test.sh arch-base
+```
+## 📋 Workflow Types
+
+### 🔄 test-pr.yaml (Original)
+- **Trigger:** Pull requests
+- **Logic:** Tests only changed templates
+- **Optimization:** Fast execution, resource saving
+- **Issue:** Doesn't work without git changes
+
+### 🎯 test-local.yaml (Local Testing)
+- **Trigger:** Manual dispatch with parameters
+- **Logic:** Flexible testing (single template or all)
+- **Usage:** Local development and debugging
+- **Commands:**
+  - All: `act workflow_dispatch -W .github/workflows/test-local.yaml`
+  - Single: `act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-base`
+
+## �️ Testing structure
 
 ### 💨 Smoke tests
 
