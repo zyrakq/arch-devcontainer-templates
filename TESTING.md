@@ -37,14 +37,18 @@ act workflow_dispatch -W .github/workflows/test-local.yaml
 ### 🎯 Testing specific template
 ```bash
 # Test specific template
-act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-base
+act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-linuxserver
 ```
 
 ### 🛠️ Manual testing
 ```bash
-# Direct smoke-test execution for specific template
+# Direct smoke-test execution for arch-base
 ./.github/actions/smoke-test/build.sh arch-base
 ./.github/actions/smoke-test/test.sh arch-base
+
+# Direct smoke-test execution for arch-linuxserver
+./.github/actions/smoke-test/build.sh arch-linuxserver
+./.github/actions/smoke-test/test.sh arch-linuxserver
 ```
 ## 📋 Workflow Types
 
@@ -61,6 +65,7 @@ act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch
 - **Commands:**
   - All: `act workflow_dispatch -W .github/workflows/test-local.yaml`
   - Single: `act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-base`
+  - LinuxServer: `act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-linuxserver`
 
 ## �️ Testing structure
 
@@ -80,6 +85,14 @@ The `test/arch-base/test.sh` file contains detailed tests:
 - 🌐 Network connectivity testing
 - 📁 File system verification
 - 🔧 Environment variables testing
+
+The `test/arch-linuxserver/test.sh` file contains LinuxServer-specific tests:
+- 🖥️ Desktop environment verification
+- 🌐 Web interface accessibility (port 3000)
+- 👤 LinuxServer user configuration (`abc` user)
+- 🔧 PUID/PGID environment variables
+- 📁 Volume mount verification (`/config`, `/workspace`)
+- 🎨 Desktop environment specific checks
 
 ## 🔧 Troubleshooting
 

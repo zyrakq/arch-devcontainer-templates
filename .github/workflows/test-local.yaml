@@ -28,8 +28,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        templates: 
+        templates:
           - arch-base
+          - arch-linuxserver
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

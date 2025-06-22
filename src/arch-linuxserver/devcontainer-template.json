@@ -1,0 +1,41 @@
+{
+    "id": "arch-linuxserver",
+    "version": "1.0.0",
+    "name": "Arch Linux Desktop (LinuxServer)",
+    "description": "A development container with Arch Linux desktop environment using LinuxServer.io images with web-based GUI access",
+    "documentationURL": "https://github.com/zyrakq/devcontainer-templates/tree/main/src/arch-linuxserver",
+    "licenseURL": "https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE",
+    "options": {
+        "baseImage": {
+            "type": "string",
+            "enum": [
+                "ghcr.io/linuxserver/baseimage-kasmvnc:arch",
+                "lscr.io/linuxserver/webtop:arch-kde",
+                "lscr.io/linuxserver/webtop:arch-i3",
+                "lscr.io/linuxserver/webtop:arch-mate",
+                "lscr.io/linuxserver/webtop:arch-xfce"
+            ],
+            "default": "lscr.io/linuxserver/webtop:arch-kde",
+            "description": "Base image for the container (KasmVNC, KDE, i3, MATE, or XFCE)"
+        },
+        "projectName": {
+            "type": "string",
+            "default": "my-project",
+            "description": "Project name (used for container and network names)"
+        },
+        "title": {
+            "type": "string",
+            "default": "Arch Linux Desktop",
+            "description": "Title displayed in the web interface"
+        },
+        "timezone": {
+            "type": "string",
+            "default": "Etc/UTC",
+            "description": "Timezone for the container (e.g., Europe/London, America/New_York)"
+        }
+    },
+    "platforms": [
+        "linux/amd64",
+        "linux/arm64"
+    ]
+}
