@@ -46,6 +46,8 @@ The template supports Dev Container Features for extending functionality:
 | 📦 `yay` | AUR helper for Arch Linux |
 | 📥 `clone-repo` | Automatic repository cloning |
 | 📦 `node` | Node.js development environment |
+| 🔷 `dotnet` | .NET development environment (via pacman) |
+| 🔷 `dotnet-bin` | .NET development environment (via AUR) |
 
 ## ⚙️ Configuration Parameters
 
@@ -176,7 +178,10 @@ sudo pacman-key --refresh-keys
 - 📚 **Documentation**: [GitHub Repository](https://github.com/zyrakq/devcontainer-templates)
 - 🐛 **Issues**: Report issues via GitHub Issues
 - 📖 **Arch Wiki**: [Arch Linux Wiki](https://wiki.archlinux.org/)
-- 🐳 **Dev Containers**: [Official Documentation](https://containers.dev/)
+- 🔗 **Related Templates**:
+  - **[Arch Linux Base](../arch-base/NOTES.md)** - Minimalist Arch Linux environment without desktop (current)
+  - **[Arch Linux Desktop](../arch-linuxserver/NOTES.md)** - Full desktop environment with web access
+- � **Dev Containers**: [Official Documentation](https://containers.dev/)
 - 🔗 **Related Projects**:
   - [bartventer/devcontainer-images](https://github.com/bartventer/devcontainer-images/) - Comprehensive collection of Dev Container images and features
   - [bartventer/arch-devcontainer-features](https://github.com/bartventer/arch-devcontainer-features/) - DevContainer features for Arch Linux by bartventer
