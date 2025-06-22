@@ -47,7 +47,8 @@
             "extensions": [
                 "mads-hartmann.bash-ide-vscode",
                 "dbaeumer.vscode-eslint",
-                "eamodio.gitlens"
+                "eamodio.gitlens",
+                "kilocode.kilo-code"
             ]
         }
     },

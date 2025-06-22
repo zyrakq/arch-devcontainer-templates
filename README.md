@@ -34,6 +34,8 @@ Base template based on Arch Linux with:
 | 📦 yay | `ghcr.io/zyrakq/arch-devcontainer-features/yay` |
 | 📥 clone-repo | `ghcr.io/zyrakq/arch-devcontainer-features/clone-repo` |
 | 📦 node | `ghcr.io/zyrakq/arch-devcontainer-features/node` |
+| 🔷 dotnet | `ghcr.io/zyrakq/arch-devcontainer-features/dotnet` |
+| 🔷 dotnet-bin | `ghcr.io/zyrakq/arch-devcontainer-features/dotnet-bin` |
 
 ## ⚙️ Template Parameters
 

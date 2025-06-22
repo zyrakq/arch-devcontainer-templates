@@ -35,6 +35,8 @@ The template supports Dev Container Features for extending functionality:
 | 📦 `yay` | AUR helper for Arch Linux |
 | 📥 `clone-repo` | Automatic repository cloning |
 | 📦 `node` | Node.js development environment |
+| 🔷 `dotnet` | .NET development environment (via pacman) |
+| 🔷 `dotnet-bin` | .NET development environment (via AUR) |
 
 ## ⚙️ Configuration Parameters
 

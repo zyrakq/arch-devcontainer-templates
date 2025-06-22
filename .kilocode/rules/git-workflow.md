@@ -3,12 +3,13 @@ Detailed git workflow rules. Includes strict commit formatting requirements, wor
 
 ## Commit formatting
 - Header no more than 50 characters, starts with verb in infinitive form
-- Description "what was done" - mandatory, no more than 72 characters per line  
+- Description "what was done" - mandatory, no more than 72 characters per line
 - Description "why it was done" - mandatory, no more than 72 characters per line
 - Task reference in format "Task: [number](task_link)" - mandatory
 - All descriptions in English language
 - Blocks separated by empty lines
 - Don't put period at end of line if there's no second sentence
+- Focus on "what" and "why", avoid technical implementation details ("how")
 
 ## Mandatory pre-commit check
 - If commit creation request doesn't specify task number and link, always ask user for them
