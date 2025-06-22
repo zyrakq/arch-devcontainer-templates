@@ -1,0 +1,50 @@
+{
+    "name": "${templateOption:projectName} Desktop (LinuxServer)",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".",
+        "args": {
+            "BASE_IMAGE": "${templateOption:baseImage}"
+        }
+    },
+    "workspaceFolder": "/workspace/${templateOption:projectName}",
+    "workspaceMount": "source=${templateOption:projectName}-workspace,target=/workspace/${templateOption:projectName},type=volume",
+    "mounts": [
+        "source=${templateOption:projectName}-home,target=/config,type=volume"
+    ],
+    "remoteUser": "abc",
+    "remoteEnv": {
+        "HOME": "/config"
+    },
+    "containerEnv": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${templateOption:timezone}",
+        "TITLE": "${templateOption:title}"
+    },
+    "runArgs": [
+        "--name=${templateOption:projectName}-devcontainer",
+        "--hostname=${templateOption:projectName}",
+        "--network=${templateOption:projectName}-network",
+        "--shm-size=1gb"
+    ],
+    "features": {
+        "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
+            "username": "abc",
+            "additionalPackages": "base-devel",
+            "installZsh": true,
+            "installOhMyZsh": true,
+            "configureZshAsDefaultShell": true
+        }
+    },
+    "initializeCommand": "docker network create ${templateOption:projectName}-network 2>/dev/null || true",
+    "forwardPorts": [
+        3000
+    ],
+    "portsAttributes": {
+        "3000": {
+            "label": "Desktop Environment",
+            "onAutoForward": "openBrowser"
+        }
+    }
+}

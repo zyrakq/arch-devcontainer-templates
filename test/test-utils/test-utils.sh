@@ -167,3 +167,99 @@ generate_report() {
         return 1
     fi
 }
+
+# Check if port is listening
+check_port() {
+    local port="$1"
+    local description="$2"
+    
+    log "Checking port: $description"
+    
+    if netstat -tuln 2>/dev/null | grep -q ":$port " || ss -tuln 2>/dev/null | grep -q ":$port "; then
+        success "Port $port is listening"
+        return 0
+    else
+        error "Port $port is not listening"
+        return 1
+    fi
+}
+
+# Check if process is running
+check_process() {
+    local process_pattern="$1"
+    local description="$2"
+    
+    log "Checking process: $description"
+    
+    if pgrep -f "$process_pattern" >/dev/null 2>&1; then
+        success "Process matching '$process_pattern' is running"
+        return 0
+    else
+        error "No process matching '$process_pattern' found"
+        return 1
+    fi
+}
+
+# Check file permissions
+check_permissions() {
+    local path="$1"
+    local expected_perms="$2"
+    local description="$3"
+    
+    log "Checking permissions: $description"
+    
+    if [ -e "$path" ]; then
+        local actual_perms
+        actual_perms=$(stat -c '%a' "$path" 2>/dev/null)
+        if [ "$actual_perms" = "$expected_perms" ]; then
+            success "Path $path has correct permissions: $actual_perms"
+            return 0
+        else
+            error "Path $path has incorrect permissions: $actual_perms (expected: $expected_perms)"
+            return 1
+        fi
+    else
+        error "Path $path not found"
+        return 1
+    fi
+}
+
+# Check file ownership
+check_ownership() {
+    local path="$1"
+    local expected_owner="$2"
+    local description="$3"
+    
+    log "Checking ownership: $description"
+    
+    if [ -e "$path" ]; then
+        local actual_owner
+        actual_owner=$(stat -c '%U' "$path" 2>/dev/null)
+        if [ "$actual_owner" = "$expected_owner" ]; then
+            success "Path $path is owned by: $actual_owner"
+            return 0
+        else
+            error "Path $path is owned by: $actual_owner (expected: $expected_owner)"
+            return 1
+        fi
+    else
+        error "Path $path not found"
+        return 1
+    fi
+}
+
+# Check if directory is writable
+check_writable() {
+    local path="$1"
+    local description="$2"
+    
+    log "Checking write access: $description"
+    
+    if [ -w "$path" ]; then
+        success "Path $path is writable"
+        return 0
+    else
+        error "Path $path is not writable"
+        return 1
+    fi
+}
