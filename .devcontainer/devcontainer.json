@@ -14,13 +14,9 @@
     ],
     "remoteUser": "vscode",
     "runArgs": [
-        "--name", "arch-devcontainer-templates-workspace",
-        "--network=arch-devcontainer-templates-workspace-network",
-        "-e", "HTTP_PROXY=",
-        "-e", "HTTPS_PROXY=",
-        "-e", "http_proxy=",
-        "-e", "https_proxy="
-    
+        "--name",
+        "arch-devcontainer-templates-workspace",
+        "--network=arch-devcontainer-templates-workspace-network"
     ],
     "features": {
         "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
@@ -45,14 +41,31 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                // VSCode
+                "vscode-icons-team.vscode-icons",
+                "aaron-bond.better-comments",
+                "IBM.output-colorizer",
+                // Markdown
+                "davidanson.vscode-markdownlint",
+                "bierner.markdown-mermaid",
+                // Bash
                 "mads-hartmann.bash-ide-vscode",
-                "dbaeumer.vscode-eslint",
+                // Git
                 "eamodio.gitlens",
+                "codezombiech.gitignore",
+                // AI Assistant
                 "kilocode.kilo-code"
             ]
         }
     },
     "initializeCommand": [
-        "bash", "-c", "docker network ls | grep -q arch-devcontainer-templates-workspace-network || docker network create arch-devcontainer-templates-workspace-network"
+        "bash",
+        "-c",
+        "docker network ls | grep -q arch-devcontainer-templates-workspace-network || docker network create arch-devcontainer-templates-workspace-network"
+    ],
+    "postCreateCommand": [
+        "bash",
+        "-c",
+        "git config --global commit.template /workspace/arch-devcontainer-templates/.gitmessage"
     ]
 }

@@ -1,0 +1,14 @@
+{
+  "git.openRepositoryInParentFolders": "never",
+  "git.detectSubmodules": false,
+  "git.scanRepositories": [],
+  "git.autoRepositoryDetection": false,
+  "files.associations": {
+    "LICENSE-APACHE": "plaintext",
+    "LICENSE-MIT": "plaintext",
+    ".gitmessage": "plaintext"
+  },
+  "markdownlint.config": {
+    "MD025": false
+  }
+}

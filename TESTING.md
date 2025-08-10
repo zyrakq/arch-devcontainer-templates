@@ -24,23 +24,27 @@ choco install act-cli
 ## 🚀 Local testing
 
 ### 🔄 Testing changed templates (original workflow)
+
 ```bash
 act pull_request
 ```
 
 ### 🧪 Testing all templates (new workflow)
+
 ```bash
 # Test all templates
 act workflow_dispatch -W .github/workflows/test-local.yaml
 ```
 
 ### 🎯 Testing specific template
+
 ```bash
 # Test specific template
 act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-linuxserver
 ```
 
 ### 🛠️ Manual testing
+
 ```bash
 # Direct smoke-test execution for arch-base
 ./.github/actions/smoke-test/build.sh arch-base
@@ -50,15 +54,18 @@ act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch
 ./.github/actions/smoke-test/build.sh arch-linuxserver
 ./.github/actions/smoke-test/test.sh arch-linuxserver
 ```
+
 ## 📋 Workflow Types
 
 ### 🔄 test-pr.yaml (Original)
+
 - **Trigger:** Pull requests
 - **Logic:** Tests only changed templates
 - **Optimization:** Fast execution, resource saving
 - **Issue:** Doesn't work without git changes
 
 ### 🎯 test-local.yaml (Local Testing)
+
 - **Trigger:** Manual dispatch with parameters
 - **Logic:** Flexible testing (single template or all)
 - **Usage:** Local development and debugging
@@ -72,6 +79,7 @@ act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch
 ### 💨 Smoke tests
 
 Smoke tests perform:
+
 1. 🔨 **Template build** - copying and configuring files
 2. 🐳 **Devcontainer creation** - building Docker image
 3. ✅ **Test execution** - running tests inside the container
@@ -79,6 +87,7 @@ Smoke tests perform:
 ### 🔍 Local tests
 
 The `test/arch-base/test.sh` file contains detailed tests:
+
 - 🐧 Base system check (Arch Linux)
 - 📦 Installed packages testing
 - 🔧 Git verification
@@ -87,6 +96,7 @@ The `test/arch-base/test.sh` file contains detailed tests:
 - 🔧 Environment variables testing
 
 The `test/arch-linuxserver/test.sh` file contains LinuxServer-specific tests:
+
 - 🖥️ Desktop environment verification
 - 🌐 Web interface accessibility (port 3000)
 - 👤 LinuxServer user configuration (`abc` user)

@@ -7,12 +7,14 @@ The **Arch Linux Base** template provides a minimalist yet powerful development 
 ## ⚡ Features
 
 ### 🏗️ Base System
+
 - 🐧 **Operating System**: Arch Linux (rolling release)
 - 🏛️ **Architectures**: linux/amd64, linux/arm64
 - 📦 **Package Manager**: pacman + AUR via yay (optional)
 - ✨ **Minimalist Approach**: only essential components
 
 ### 🛠️ Pre-installed Tools
+
 - 🔧 **Git** - version control system
 - 📥 **Curl/Wget** - download utilities
 - 🔨 **Base-devel** - essential development tools
@@ -20,6 +22,7 @@ The **Arch Linux Base** template provides a minimalist yet powerful development 
 - ✏️ **Vim/Nano** - text editors
 
 ### 🔧 Modularity through Features
+
 The template supports Dev Container Features for extending functionality:
 
 | Feature | Description |
@@ -41,6 +44,7 @@ The template supports Dev Container Features for extending functionality:
 ## ⚙️ Configuration Parameters
 
 ### 📝 projectName
+
 - 🔤 **Type**: string
 - 🎯 **Default**: "my-project"
 - 📋 **Description**: Project name, used for container and network naming
@@ -55,7 +59,7 @@ The template supports Dev Container Features for extending functionality:
 
 After applying the template, the following structure is created:
 
-```
+```sh
 .devcontainer/
 ├── devcontainer.json    # Main configuration
 └── Dockerfile          # Arch Linux based image (if used)
@@ -74,6 +78,7 @@ To add this template to your VS Code project:
 ## 💡 Usage Examples
 
 ### 🔧 With Additional Features
+
 ```json
 {
   "name": "Arch Development with Go",
@@ -88,6 +93,7 @@ To add this template to your VS Code project:
 ## 🌐 Network Configuration
 
 The template creates an isolated network for the project:
+
 - 🏷️ **Network Name**: `${projectName}-network`
 - 🔗 **Type**: bridge
 - 🔒 **Isolation**: complete isolation from other projects
@@ -95,6 +101,7 @@ The template creates an isolated network for the project:
 ## 💾 Volume Management
 
 ### 📦 Recommended Volumes
+
 ```json
 {
   "mounts": [
@@ -107,6 +114,7 @@ The template creates an isolated network for the project:
 ## 📦 Package Installation
 
 ### 🐧 Via pacman
+
 ```bash
 # Update system
 sudo pacman -Syu
@@ -116,6 +124,7 @@ sudo pacman -S package-name
 ```
 
 ### 📥 Via AUR (with yay feature)
+
 ```bash
 # Install from AUR
 yay -S aur-package-name
@@ -123,19 +132,22 @@ yay -S aur-package-name
 
 ## 💡 Usage Recommendations
 
-### 🎯 Perfect for:
+### 🎯 Perfect for
+
 - 🔧 Systems programming
 - 🐹 Go, Rust, C/C++ development
 - 🚀 DevOps and automation
 - 🧪 Experimenting with latest technologies
 - ⚙️ Custom development environment setup
 
-### ⚠️ Consider:
+### ⚠️ Consider
+
 - 🔄 Arch Linux is rolling release, requires regular updates
 - ✨ Minimalist approach - need to install additional packages
 - 🐧 Requires basic Linux knowledge
 
-### 🔧 Post-creation setup:
+### 🔧 Post-creation setup
+
 1. 🔄 Update system: `sudo pacman -Syu`
 2. 📦 Install required packages
 3. 🔧 Configure Git: `git config --global user.name "Your Name"`
@@ -144,6 +156,7 @@ yay -S aur-package-name
 ## 🔧 Troubleshooting
 
 ### 📦 Package Issues
+
 ```bash
 # Clear pacman cache
 sudo pacman -Sc
@@ -155,6 +168,7 @@ sudo pacman-key --refresh-keys
 ## 🔧 Extending the Template
 
 ### 📝 Adding Post Scripts
+
 ```json
 {
   "postCreateCommand": "bash .devcontainer/setup.sh",

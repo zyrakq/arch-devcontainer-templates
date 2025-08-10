@@ -21,12 +21,14 @@ The **Arch Linux with Web Desktop** template provides a powerful development env
 ## ⚡ Features
 
 ### 🖥️ Base Image Options
+
 - 🎨 **5 Base Images**: KasmVNC, KDE, i3, MATE, XFCE
 - 🌐 **Web Access**: Full desktop accessible via browser on port 3000
 - 🔄 **Flexible Selection**: Choose the right base image for your needs
 - 📱 **Cross-platform**: Works on any device with a web browser
 
 ### 🏗️ LinuxServer.io Base
+
 - 🐧 **Operating System**: Arch Linux (rolling release)
 - 🏛️ **Architectures**: linux/amd64, linux/arm64
 - 👤 **User Management**: Pre-configured `abc` user with HOME=/config
@@ -34,12 +36,14 @@ The **Arch Linux with Web Desktop** template provides a powerful development env
 - 📦 **Package Manager**: pacman with full Arch repositories
 
 ### 🛠️ Pre-installed Components
+
 - 🔧 **Development Tools**: Git, curl, wget, base-devel
 - 🖥️ **Desktop Applications**: File manager, terminal, text editor
 - 🌐 **Web Interface**: KasmVNC or native desktop streaming
 - 🔐 **SSH Support**: Secure remote access capabilities
 
 ### 🔧 Modularity through Features
+
 The template supports Dev Container Features for extending functionality:
 
 | Feature | Description | Desktop Compatibility |
@@ -64,6 +68,7 @@ The template supports Dev Container Features for extending functionality:
 ## ⚙️ Configuration Parameters
 
 ### 🎨 baseImage
+
 - 🔤 **Type**: string (enum)
 - 🎯 **Default**: "lscr.io/linuxserver/webtop:arch-kde"
 - 📋 **Options**:
@@ -81,6 +86,7 @@ The template supports Dev Container Features for extending functionality:
 ```
 
 ### 📝 projectName
+
 - 🔤 **Type**: string
 - 🎯 **Default**: "my-project"
 - 📋 **Description**: Project name, used for container and network naming
@@ -92,6 +98,7 @@ The template supports Dev Container Features for extending functionality:
 ```
 
 ### 🏷️ title
+
 - 🔤 **Type**: string
 - 🎯 **Default**: "Arch Linux Desktop"
 - 📋 **Description**: Title displayed in the web interface
@@ -103,6 +110,7 @@ The template supports Dev Container Features for extending functionality:
 ```
 
 ### 🕐 timezone
+
 - 🔤 **Type**: string
 - 🎯 **Default**: "Etc/UTC"
 - 📋 **Description**: Timezone for the container
@@ -127,7 +135,7 @@ The template supports Dev Container Features for extending functionality:
 
 After applying the template, the following structure is created:
 
-```
+```sh
 .devcontainer/
 ├── devcontainer.json    # Main configuration with LinuxServer settings
 └── Dockerfile          # LinuxServer.io based image
@@ -147,6 +155,7 @@ To add this template to your VS Code project:
 ## 💡 Usage Examples
 
 ### 🔷 KDE Desktop with Full Development Stack
+
 ```json
 {
   "baseImage": "lscr.io/linuxserver/webtop:arch-kde",
@@ -170,6 +179,7 @@ To add this template to your VS Code project:
 ```
 
 ### ⚡ Lightweight i3 with Essential Tools
+
 ```json
 {
   "baseImage": "lscr.io/linuxserver/webtop:arch-i3",
@@ -187,6 +197,7 @@ To add this template to your VS Code project:
 ```
 
 ### 🌐 Web-Optimized KasmVNC with Cloud Tools
+
 ```json
 {
   "baseImage": "ghcr.io/linuxserver/baseimage-kasmvnc:arch",
@@ -205,6 +216,7 @@ To add this template to your VS Code project:
 ```
 
 ### 🎨 XFCE with GUI Development Tools
+
 ```json
 {
   "baseImage": "lscr.io/linuxserver/webtop:arch-xfce",
@@ -227,12 +239,14 @@ To add this template to your VS Code project:
 ## 🌐 Web Interface Access
 
 ### 🔗 Accessing the Desktop
+
 1. 🚀 Start the Dev Container
 2. 🌐 Open browser and navigate to `http://localhost:3000`
 3. 🖱️ Use the desktop environment directly in your browser
 4. 📱 Access from any device on the same network
 
 ### 🔐 Security Considerations
+
 - 🏠 **Local Access**: Default configuration for localhost only
 - 🔒 **Network Isolation**: Container runs in isolated network
 - 🛡️ **No Authentication**: Suitable for development environments only
@@ -241,6 +255,7 @@ To add this template to your VS Code project:
 ## 🌐 Network Configuration
 
 The template creates an isolated network environment:
+
 - 🏷️ **Network Name**: `${projectName}-network`
 - 🔗 **Type**: bridge network
 - 🚪 **Port Forwarding**: 3000 (web interface)
@@ -250,6 +265,7 @@ The template creates an isolated network environment:
 ## 💾 Volume Management
 
 ### 📦 LinuxServer Volume Structure
+
 ```json
 {
   "mounts": [
@@ -260,13 +276,16 @@ The template creates an isolated network environment:
 ```
 
 ### 🏠 Volume Persistence
+
 - 📁 **User Home**: `/config` (persistent volume `${projectName}-home`)
 - 💾 **Desktop Settings**: Automatically saved in `/config/.config`
 - 🔧 **Application Configs**: Preserved between restarts
 - 📂 **Workspace**: `/workspace/${projectName}` (persistent volume `${projectName}-workspace`)
 
 ### 🔧 Volume Permissions
+
 LinuxServer.io images automatically handle file permissions using PUID/PGID:
+
 ```bash
 # Files are automatically owned by abc:abc (1000:1000)
 # No manual permission fixes needed
@@ -275,6 +294,7 @@ LinuxServer.io images automatically handle file permissions using PUID/PGID:
 ## 📦 Package Installation
 
 ### 🐧 Via pacman
+
 ```bash
 # Update system
 sudo pacman -Syu
@@ -287,6 +307,7 @@ sudo pacman -S code firefox gimp inkscape
 ```
 
 ### 📥 Via AUR (with yay feature)
+
 ```bash
 # Install from AUR
 yay -S aur-package-name
@@ -296,6 +317,7 @@ yay -S visual-studio-code-bin discord
 ```
 
 ### 🖥️ Desktop-Specific Packages
+
 ```bash
 # KDE applications
 sudo pacman -S kdevelop kate konsole
@@ -310,6 +332,7 @@ sudo pacman -S dmenu i3status i3lock
 ## 🐧 LinuxServer Specifics
 
 ### 👤 User Configuration
+
 - 🆔 **Username**: `abc`
 - 🏠 **Home Directory**: `/config`
 - 🔢 **PUID**: 1000 (configurable)
@@ -317,6 +340,7 @@ sudo pacman -S dmenu i3status i3lock
 - 🔐 **Permissions**: Automatic file ownership handling
 
 ### 🔧 Environment Variables
+
 ```bash
 PUID=1000          # User ID
 PGID=1000          # Group ID
@@ -325,6 +349,7 @@ TITLE=Arch Linux Desktop  # Web interface title
 ```
 
 ### 📦 System Requirements
+
 - 💾 **RAM**: Minimum 2GB, recommended 4GB+
 - 🧠 **Shared Memory**: 1GB (--shm-size=1gb)
 - 💿 **Storage**: 5GB+ for desktop environment
@@ -332,7 +357,8 @@ TITLE=Arch Linux Desktop  # Web interface title
 
 ## 💡 Usage Recommendations
 
-### 🎯 Perfect for:
+### 🎯 Perfect for
+
 - 🖥️ **GUI Application Development**: Testing desktop applications
 - 🎨 **Design Work**: Graphics and multimedia projects
 - 🔬 **Research**: Academic work requiring GUI tools
@@ -340,14 +366,16 @@ TITLE=Arch Linux Desktop  # Web interface title
 - 🌐 **Remote Development**: Accessing development environment from anywhere
 - 🧪 **Testing**: Cross-platform GUI testing
 
-### 🔷 Base Image Selection:
+### 🔷 Base Image Selection
+
 - **webtop:arch-kde**: Choose for modern development with full IDE support
 - **webtop:arch-i3**: Perfect for keyboard-driven development workflows
 - **webtop:arch-xfce**: Best balance of features and performance
 - **webtop:arch-mate**: Ideal for traditional desktop experience
 - **baseimage-kasmvnc**: Optimized for remote access and low bandwidth
 
-### ⚠️ Consider:
+### ⚠️ Consider
+
 - 🔄 Higher resource usage compared to CLI-only containers
 - 🌐 Web interface may have slight input lag
 - 📱 Mobile browser experience may be limited
@@ -356,6 +384,7 @@ TITLE=Arch Linux Desktop  # Web interface title
 ## 🔧 Troubleshooting
 
 ### 🌐 Web Interface Issues
+
 ```bash
 # Check if service is running (s6-overlay)
 s6-svstat /var/run/s6/services/*
@@ -371,6 +400,7 @@ tail -f /config/log/supervisord.log
 ```
 
 ### 🖥️ Desktop Environment Problems
+
 ```bash
 # Reset desktop settings
 rm -rf /config/.config/kde*  # For KDE
@@ -380,6 +410,7 @@ rm -rf /config/.config/xfce* # For XFCE
 ```
 
 ### 📦 Package Installation Issues
+
 ```bash
 # Update system
 sudo pacman -Syu
@@ -392,6 +423,7 @@ sudo pacman-key --refresh-keys
 ```
 
 ### 🔐 Permission Problems
+
 ```bash
 # Fix ownership (run as root)
 chown -R abc:abc /config
@@ -401,6 +433,7 @@ chown -R abc:abc /workspace
 ## 🔧 Extending the Template
 
 ### 📦 Installing Desktop Applications
+
 ```bash
 # Install development tools
 sudo pacman -S code firefox gimp inkscape
@@ -413,6 +446,7 @@ sudo pacman -S libreoffice-fresh
 ```
 
 ### 🎨 Customizing Desktop Environment
+
 ```json
 {
   "postCreateCommand": "bash .devcontainer/setup-desktop.sh",
@@ -421,6 +455,7 @@ sudo pacman -S libreoffice-fresh
 ```
 
 ### 🔧 Adding Development Features
+
 ```json
 {
   "features": {

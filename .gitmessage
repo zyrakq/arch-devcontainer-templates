@@ -1,0 +1,18 @@
+# Header: verb in infinitive form (max 50 chars)
+
+# What was done (max 72 chars per line)
+# Each change on new line, past tense verbs (Replaced, Added, Updated)
+
+# Why it was done (max 72 chars per line)
+# Each reason on new line, present tense verbs (Provide, Improve, Enable)
+
+# Rules:
+# - Header starts with verb in infinitive form
+# - Blocks separated by empty lines
+# - No period at end of line if no second sentence
+# - Answer "what" and "why", not "how"
+# - Focus on business value, not technical details
+# - Each change item starts on new line
+# - Use past tense for "what" (Replaced, Added, Updated)
+# - Use present tense for "why" (Provide, Improve, Enable)
+# - All text in English

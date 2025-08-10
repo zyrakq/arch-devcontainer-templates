@@ -13,14 +13,18 @@ A collection of templates for VS Code Dev Containers, designed for quick develop
 ## 📦 Available Templates
 
 ### 🏗️ arch-base
+
 Base template based on Arch Linux with:
+
 - 🐧 Minimal Arch Linux base image
 - 🔧 DevContainer features for modular functionality
 - 💾 Separate volumes for home directory and workspace
 - 🔒 Custom network isolation
 
 ### 🖥️ arch-linuxserver
+
 Desktop template based on LinuxServer.io images with:
+
 - 🌐 Web-based GUI access via browser (port 3000)
 - 🖥️ 5 desktop environments: KDE, i3, MATE, XFCE, or terminal-only (kasmvnc)
 - 🐧 Arch Linux base with LinuxServer.io optimizations
@@ -42,6 +46,7 @@ Desktop template based on LinuxServer.io images with:
 | 📦 yay | `ghcr.io/zyrakq/arch-devcontainer-features/yay` |
 | 📥 clone-repo | `ghcr.io/zyrakq/arch-devcontainer-features/clone-repo` |
 | 📦 node | `ghcr.io/zyrakq/arch-devcontainer-features/node` |
+| 🦀 rust | `ghcr.io/zyrakq/arch-devcontainer-features/rust` |
 | 🔷 dotnet | `ghcr.io/zyrakq/arch-devcontainer-features/dotnet` |
 | 🔷 dotnet-bin | `ghcr.io/zyrakq/arch-devcontainer-features/dotnet-bin` |
 
@@ -50,9 +55,11 @@ Desktop template based on LinuxServer.io images with:
 When using the template, you'll be prompted to specify:
 
 ### arch-base
+
 - 📝 **Project Name**: Project name (used for container and network names)
 
 ### arch-linuxserver
+
 - 🎨 **Desktop Environment**: Choose from kasmvnc, kde, i3, mate, or xfce
 - 📝 **Project Name**: Project name (used for container and network names)
 - 🏷️ **Title**: Title displayed in the web interface
@@ -60,7 +67,7 @@ When using the template, you'll be prompted to specify:
 
 ## 📁 Template Structure
 
-```
+```sh
 .devcontainer/
 ├── devcontainer.json           # Main configuration with features
 └── Dockerfile                  # Arch Linux image with required packages
@@ -86,15 +93,20 @@ This allows you to validate template builds and tests before pushing changes to 
 ## 🔧 Setup
 
 After creating the .devcontainer configuration:
+
 1. 🔄 Run "Dev Containers: Reopen in Container"
 
 ## 🔗 Related Projects
 
 This project was inspired by and borrows concepts from:
+
 - [bartventer/devcontainer-images](https://github.com/bartventer/devcontainer-images/) - Comprehensive collection of Dev Container images and features
 - [bartventer/arch-devcontainer-features](https://github.com/bartventer/arch-devcontainer-features/) - DevContainer features for Arch Linux by bartventer
 - [zyrakq/arch-devcontainer-features](https://github.com/zyrakq/arch-devcontainer-features/) - Additional DevContainer features for Arch Linux
 
 ## 📄 License
 
-MIT
+This project is dual-licensed under:
+
+- [Apache License 2.0](LICENSE-APACHE)
+- [MIT License](LICENSE-MIT)
