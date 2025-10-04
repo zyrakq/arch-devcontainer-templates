@@ -17,6 +17,8 @@ Detailed git workflow rules. Includes strict commit formatting requirements, wor
 - Each change item should start on a new line in "what" and "why" blocks
 - Use past tense verbs for "what was done" (Replaced, Added, Updated)
 - Use present tense verbs for "why it was done" (Provide, Improve, Enable)
+- Do not add labels like "What was done" or "Why it was done"
+- Do not use dashes or bullet points when listing changes - use plain text with line breaks
 
 ## API request conservation
 

@@ -25,7 +25,7 @@
     "runArgs": [
         "--name=${templateOption:projectName}-devcontainer",
         "--hostname=${templateOption:projectName}",
-        "--network=${templateOption:projectName}-network",
+        "--network=${templateOption:projectName}-workspace-network",
         "--shm-size=1gb"
     ],
     "features": {
@@ -37,7 +37,11 @@
             "configureZshAsDefaultShell": true
         }
     },
-    "initializeCommand": "docker network create ${templateOption:projectName}-network 2>/dev/null || true",
+    "initializeCommand": [
+        "bash",
+        "-c",
+        "docker network ls | grep -q ${templateOption:projectName}-workspace-network || docker network create ${templateOption:projectName}-workspace-network"
+    ],
     "forwardPorts": [
         3000
     ],
