@@ -476,4 +476,8 @@ sudo pacman -S libreoffice-fresh
 
 ## 📄 License
 
+This DevContainer template configuration is licensed under MIT License.
+
+**Note**: The LinuxServer.io Docker images used by this template are licensed under GPL-3.0. When you use this template, the resulting container will be subject to GPL-3.0 terms. See [LinuxServer.io License](https://github.com/linuxserver/docker-webtop/blob/master/LICENSE) for details.
+
 MIT License - see [LICENSE](https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE)

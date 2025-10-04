@@ -5,7 +5,7 @@ FROM ${BASE_IMAGE}
 LABEL org.opencontainers.image.title="Arch Linux Desktop (LinuxServer)"
 LABEL org.opencontainers.image.source="https://github.com/zyrakq/arch-devcontainer-templates"
 LABEL org.opencontainers.image.description="Arch Linux with desktop environment using LinuxServer.io images"
-LABEL org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.licenses="GPL-3.0"
 LABEL org.opencontainers.image.authors="Zyrakq <serg.shehov@tutanota.com>"
 
 # Adjust directory permissions
