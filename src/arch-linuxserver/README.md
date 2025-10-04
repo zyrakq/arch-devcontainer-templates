@@ -492,6 +492,7 @@ sudo pacman -S libreoffice-fresh
 
 MIT License - see [LICENSE](https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE)
 
+
 ---
 
 _Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/zyrakq/arch-devcontainer-templates/blob/main/src/arch-linuxserver/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
