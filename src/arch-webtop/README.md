@@ -496,6 +496,7 @@ This DevContainer template configuration is licensed under MIT License.
 
 MIT License - see [LICENSE](https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE)
 
+
 ---
 
-_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/zyrakq/dev-container-templates/blob/main/src/arch-webtop/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/zyrakq/arch-devcontainer-templates/blob/main/src/arch-webtop/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
