@@ -1,5 +1,5 @@
 #!/bin/bash
-# Test for arch-linuxserver template
+# Test for arch-webtop template
 # Checks LinuxServer.io specific functionality
 
 set -e
@@ -257,7 +257,7 @@ test_features() {
 # Main testing function
 main() {
     echo "========================================"
-    log "TESTING ARCH-LINUXSERVER TEMPLATE"
+    log "TESTING ARCH-WEBTOP TEMPLATE"
     echo "========================================"
     
     # Run all tests

@@ -7,7 +7,7 @@ A collection of templates for VS Code Dev Containers, designed for quick develop
 1. 📂 Open VS Code in your project folder
 2. ⌨️ Press `Ctrl+Shift+P` and select "Dev Containers: Add Dev Container Configuration Files..."
 3. 📋 Choose "Show All Definitions..."
-4. 🔍 In the search field, enter: `ghcr.io/zyrakq/arch-devcontainer-templates/arch-base` or `ghcr.io/zyrakq/arch-devcontainer-templates/arch-linuxserver`
+4. 🔍 In the search field, enter: `ghcr.io/zyrakq/arch-devcontainer-templates/arch-base` or `ghcr.io/zyrakq/arch-devcontainer-templates/arch-webtop`
 5. ✅ Select the desired template from the list
 
 ## 📦 Available Templates
@@ -21,7 +21,7 @@ Base template based on Arch Linux with:
 - 💾 Separate volumes for home directory and workspace
 - 🔒 Custom network isolation
 
-### 🖥️ arch-linuxserver
+### 🖥️ arch-webtop
 
 Desktop template based on LinuxServer.io images with:
 
@@ -58,7 +58,7 @@ When using the template, you'll be prompted to specify:
 
 - 📝 **Project Name**: Project name (used for container and network names)
 
-### arch-linuxserver
+### arch-webtop
 
 - 🎨 **Desktop Environment**: Choose from kasmvnc, kde, i3, mate, or xfce
 - 📝 **Project Name**: Project name (used for container and network names)

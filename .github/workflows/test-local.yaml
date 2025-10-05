@@ -30,7 +30,7 @@ jobs:
       matrix:
         templates:
           - arch-base
-          - arch-linuxserver
+          - arch-webtop
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

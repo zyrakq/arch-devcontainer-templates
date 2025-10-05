@@ -40,7 +40,7 @@ act workflow_dispatch -W .github/workflows/test-local.yaml
 
 ```bash
 # Test specific template
-act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-linuxserver
+act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-webtop
 ```
 
 ### 🛠️ Manual testing
@@ -50,9 +50,9 @@ act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch
 ./.github/actions/smoke-test/build.sh arch-base
 ./.github/actions/smoke-test/test.sh arch-base
 
-# Direct smoke-test execution for arch-linuxserver
-./.github/actions/smoke-test/build.sh arch-linuxserver
-./.github/actions/smoke-test/test.sh arch-linuxserver
+# Direct smoke-test execution for arch-webtop
+./.github/actions/smoke-test/build.sh arch-webtop
+./.github/actions/smoke-test/test.sh arch-webtop
 ```
 
 ## 📋 Workflow Types
@@ -72,7 +72,7 @@ act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch
 - **Commands:**
   - All: `act workflow_dispatch -W .github/workflows/test-local.yaml`
   - Single: `act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-base`
-  - LinuxServer: `act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-linuxserver`
+  - LinuxServer: `act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-webtop`
 
 ## �️ Testing structure
 
@@ -95,7 +95,7 @@ The `test/arch-base/test.sh` file contains detailed tests:
 - 📁 File system verification
 - 🔧 Environment variables testing
 
-The `test/arch-linuxserver/test.sh` file contains LinuxServer-specific tests:
+The `test/arch-webtop/test.sh` file contains LinuxServer-specific tests:
 
 - 🖥️ Desktop environment verification
 - 🌐 Web interface accessibility (port 3000)

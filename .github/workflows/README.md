@@ -33,7 +33,7 @@ act workflow_dispatch -W .github/workflows/test-local.yaml
 
 # Test specific template
 act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-base
-act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-linuxserver
+act workflow_dispatch -W .github/workflows/test-local.yaml --input template=arch-webtop
 ```
 
 ## 🔧 Adding New Templates

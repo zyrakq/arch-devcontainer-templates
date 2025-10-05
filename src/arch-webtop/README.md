@@ -1,5 +1,5 @@
 
-# Arch Linux Desktop (LinuxServer) (arch-linuxserver)
+# Arch Linux Desktop (WebTop) (arch-webtop)
 
 A development container with Arch Linux desktop environment using LinuxServer.io images with web-based GUI access
 
@@ -148,7 +148,7 @@ To add this template to your VS Code project:
 1. 📂 Open VS Code in your project folder
 2. ⌨️ Press `Ctrl+Shift+P` and select "Dev Containers: Add Dev Container Configuration Files..."
 3. 📋 Choose "Show All Definitions..."
-4. 🔍 In the search field, enter: `ghcr.io/zyrakq/arch-devcontainer-templates/arch-linuxserver`
+4. 🔍 In the search field, enter: `ghcr.io/zyrakq/arch-devcontainer-templates/arch-webtop`
 5. ✅ Select the desired template from the list
 6. 🎨 Choose your preferred desktop environment
 
@@ -475,7 +475,7 @@ sudo pacman -S libreoffice-fresh
 - 🐳 **LinuxServer.io**: [Official Documentation](https://docs.linuxserver.io/)
 - 🔗 **Related Templates**:
   - **[Arch Linux Base](../arch-base/NOTES.md)** - Minimalist Arch Linux environment without desktop
-  - **[Arch Linux Desktop](../arch-linuxserver/NOTES.md)** - Full desktop environment with web access (current)
+  - **[Arch Linux Desktop](../arch-webtop/NOTES.md)** - Full desktop environment with web access (current)
 - 🖥️ **Desktop Environments**:
   - [KDE](https://kde.org/) - Modern desktop environment
   - [i3](https://i3wm.org/) - Tiling window manager
@@ -496,7 +496,6 @@ This DevContainer template configuration is licensed under MIT License.
 
 MIT License - see [LICENSE](https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE)
 
-
 ---
 
-_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/zyrakq/arch-devcontainer-templates/blob/main/src/arch-linuxserver/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/zyrakq/dev-container-templates/blob/main/src/arch-webtop/devcontainer-template.json).  Add additional notes to a `NOTES.md`._

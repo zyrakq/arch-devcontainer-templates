@@ -1,5 +1,5 @@
 {
-    "name": "${templateOption:projectName} Desktop (LinuxServer)",
+    "name": "${templateOption:projectName} Desktop (WebTop)",
     "build": {
         "dockerfile": "Dockerfile",
         "context": ".",

@@ -1,9 +1,9 @@
 {
-    "id": "arch-linuxserver",
+    "id": "arch-webtop",
     "version": "1.0.0",
-    "name": "Arch Linux Desktop (LinuxServer)",
+    "name": "Arch Linux Desktop (WebTop)",
     "description": "A development container with Arch Linux desktop environment using LinuxServer.io images with web-based GUI access",
-    "documentationURL": "https://github.com/zyrakq/devcontainer-templates/tree/main/src/arch-linuxserver",
+    "documentationURL": "https://github.com/zyrakq/devcontainer-templates/tree/main/src/arch-webtop",
     "licenseURL": "https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE",
     "options": {
         "baseImage": {

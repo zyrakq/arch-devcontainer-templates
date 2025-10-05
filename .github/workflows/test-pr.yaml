@@ -14,7 +14,7 @@ jobs:
         with:
           filters: |
             arch-base: ./**/arch-base/**
-            arch-linuxserver: ./**/arch-linuxserver/**
+            arch-webtop: ./**/arch-webtop/**
 
   test:
     needs: [detect-changes]

@@ -134,7 +134,7 @@ To add this template to your VS Code project:
 1. 📂 Open VS Code in your project folder
 2. ⌨️ Press `Ctrl+Shift+P` and select "Dev Containers: Add Dev Container Configuration Files..."
 3. 📋 Choose "Show All Definitions..."
-4. 🔍 In the search field, enter: `ghcr.io/zyrakq/arch-devcontainer-templates/arch-linuxserver`
+4. 🔍 In the search field, enter: `ghcr.io/zyrakq/arch-devcontainer-templates/arch-webtop`
 5. ✅ Select the desired template from the list
 6. 🎨 Choose your preferred desktop environment
 
@@ -461,7 +461,7 @@ sudo pacman -S libreoffice-fresh
 - 🐳 **LinuxServer.io**: [Official Documentation](https://docs.linuxserver.io/)
 - 🔗 **Related Templates**:
   - **[Arch Linux Base](../arch-base/NOTES.md)** - Minimalist Arch Linux environment without desktop
-  - **[Arch Linux Desktop](../arch-linuxserver/NOTES.md)** - Full desktop environment with web access (current)
+  - **[Arch Linux Desktop](../arch-webtop/NOTES.md)** - Full desktop environment with web access (current)
 - 🖥️ **Desktop Environments**:
   - [KDE](https://kde.org/) - Modern desktop environment
   - [i3](https://i3wm.org/) - Tiling window manager
