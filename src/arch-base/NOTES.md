@@ -36,8 +36,10 @@ The template supports Dev Container Features for extending functionality:
 | 🔵 `azure-cli` | Azure Command Line Interface |
 | 🌐 `gcloud-cli` | Google Cloud CLI |
 | 📦 `yay` | AUR helper for Arch Linux |
+| 🎨 `chaotic-aur` | Chaotic-AUR repository for pre-built AUR packages |
 | 📥 `clone-repo` | Automatic repository cloning |
 | 📦 `node` | Node.js development environment |
+| 🦀 `rust` | Rust programming language and Cargo package manager |
 | 🔷 `dotnet` | .NET development environment (via pacman) |
 | 🔷 `dotnet-bin` | .NET development environment (via AUR) |
 

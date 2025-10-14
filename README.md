@@ -44,6 +44,7 @@ Desktop template based on LinuxServer.io images with:
 | 🐳 docker-in-docker | `ghcr.io/bartventer/arch-devcontainer-features/docker-in-docker` |
 | 🔗 docker-outside-of-docker | `ghcr.io/bartventer/arch-devcontainer-features/docker-outside-of-docker` |
 | 📦 yay | `ghcr.io/zyrakq/arch-devcontainer-features/yay` |
+| 🎨 chaotic-aur | `ghcr.io/zyrakq/arch-devcontainer-features/chaotic-aur` |
 | 📥 clone-repo | `ghcr.io/zyrakq/arch-devcontainer-features/clone-repo` |
 | 📦 node | `ghcr.io/zyrakq/arch-devcontainer-features/node` |
 | 🦀 rust | `ghcr.io/zyrakq/arch-devcontainer-features/rust` |

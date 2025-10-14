@@ -43,11 +43,12 @@ The template supports Dev Container Features for extending functionality:
 | 🔵 `azure-cli` | Azure Command Line Interface | ✅ All environments |
 | 🌐 `gcloud-cli` | Google Cloud CLI | ✅ All environments |
 | 📦 `yay` | AUR helper for Arch Linux | ✅ All environments |
+| 🎨 `chaotic-aur` | Chaotic-AUR repository for pre-built AUR packages | ✅ All environments |
 | 📥 `clone-repo` | Automatic repository cloning | ✅ All environments |
 | 📦 `node` | Node.js development environment | ✅ All environments |
+| 🦀 `rust` | Rust programming language and Cargo package manager | ✅ All environments |
 | 🔷 `dotnet` | .NET development environment (via pacman) | ✅ All environments |
 | 🔷 `dotnet-bin` | .NET development environment (via AUR) | ✅ All environments |
-| 🎨 `desktop-apps` | GUI development tools | 🖥️ Desktop environments only |
 
 **Note**: All features work with LinuxServer.io base images. Features are configured for user `abc` with HOME directory `/config`.
 

@@ -6,7 +6,9 @@
   "files.associations": {
     "LICENSE-APACHE": "plaintext",
     "LICENSE-MIT": "plaintext",
-    ".gitmessage": "plaintext"
+    ".gitmessage": "plaintext",
+    "src/arch-base/README.md": "plaintext",
+    "src/arch-webtop/README.md": "plaintext"
   },
   "markdownlint.config": {
     "MD025": false
