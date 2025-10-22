@@ -1,0 +1,23 @@
+# Pipelight
+.pipelight/
+pipelight.log
+/tmp/pipelight-*
+
+# Test artifacts
+/tmp/arch-base/
+/tmp/arch-webtop/
+
+# Node modules (for devcontainer CLI)
+node_modules/
+package-lock.json
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/

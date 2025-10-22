@@ -27,9 +27,7 @@
             "configureZshAsDefaultShell": true
         },
         "ghcr.io/bartventer/arch-devcontainer-features/docker-in-docker": {},
-        "ghcr.io/zyrakq/arch-devcontainer-features/yay:1": {
-            "installPackages": "act-bin"
-        },
+        "ghcr.io/zyrakq/arch-devcontainer-features/rust:1": {},
         "ghcr.io/zyrakq/arch-devcontainer-features/node:1": {
             "globalPackages": "@devcontainers/cli"
         },
@@ -66,6 +64,7 @@
     "postCreateCommand": [
         "bash",
         "-c",
-        "git config --global commit.template /workspace/arch-devcontainer-templates/.gitmessage"
+        "git config --global commit.template /workspace/arch-devcontainer-templates/.gitmessage",
+        "&& cargo install --git https://github.com/pipelight/pipelight --tag v0.10.0"
     ]
 }

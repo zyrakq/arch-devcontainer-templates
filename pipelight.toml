@@ -1,0 +1,150 @@
+# Pipelight Configuration for DevContainer Templates Testing
+# https://pipelight.dev
+
+# Pipeline: Test single template
+[[pipelines]]
+name = "test-template"
+
+  [[pipelines.steps]]
+  name = "validate-template"
+  commands = [
+    '''
+    if [ -z "$TEMPLATE" ]; then
+      echo "❌ Error: TEMPLATE environment variable is required"
+      echo "Usage: pipelight run test-template -e TEMPLATE=arch-base"
+      exit 1
+    fi
+    if [ ! -d "src/$TEMPLATE" ]; then
+      echo "❌ Error: Template 'src/$TEMPLATE' does not exist"
+      exit 1
+    fi
+    echo "✅ Testing template: $TEMPLATE"
+    '''
+  ]
+
+  [[pipelines.steps]]
+  name = "build-template"
+  commands = [
+    "echo '🔨 Building template: $TEMPLATE'",
+    ".github/actions/smoke-test/build.sh $TEMPLATE"
+  ]
+
+  [[pipelines.steps]]
+  name = "test-template"
+  commands = [
+    "echo '🧪 Running tests for: $TEMPLATE'",
+    ".github/actions/smoke-test/test.sh $TEMPLATE"
+  ]
+
+  [[pipelines.steps]]
+  name = "cleanup"
+  commands = [
+    "echo '🧹 Cleaning up test artifacts'",
+    '''
+    ID_LABEL="test-container=$TEMPLATE"
+    docker rm -f $(docker container ls -f "label=$ID_LABEL" -q) 2>/dev/null || true
+    rm -rf "/tmp/$TEMPLATE" 2>/dev/null || true
+    '''
+  ]
+  on_failure = "continue"
+
+# Pipeline: Test all templates
+[[pipelines]]
+name = "test-all"
+
+  [[pipelines.steps]]
+  name = "test-arch-base"
+  commands = [
+    "echo '📦 Testing arch-base template'",
+    "TEMPLATE=arch-base .github/actions/smoke-test/build.sh arch-base",
+    "TEMPLATE=arch-base .github/actions/smoke-test/test.sh arch-base"
+  ]
+  on_failure = "continue"
+
+  [[pipelines.steps]]
+  name = "cleanup-arch-base"
+  commands = [
+    '''
+    docker rm -f $(docker container ls -f "label=test-container=arch-base" -q) 2>/dev/null || true
+    rm -rf "/tmp/arch-base" 2>/dev/null || true
+    '''
+  ]
+  on_failure = "continue"
+
+  [[pipelines.steps]]
+  name = "test-arch-webtop"
+  commands = [
+    "echo '🖥️  Testing arch-webtop template'",
+    "TEMPLATE=arch-webtop .github/actions/smoke-test/build.sh arch-webtop",
+    "TEMPLATE=arch-webtop .github/actions/smoke-test/test.sh arch-webtop"
+  ]
+  on_failure = "continue"
+
+  [[pipelines.steps]]
+  name = "cleanup-arch-webtop"
+  commands = [
+    '''
+    docker rm -f $(docker container ls -f "label=test-container=arch-webtop" -q) 2>/dev/null || true
+    rm -rf "/tmp/arch-webtop" 2>/dev/null || true
+    '''
+  ]
+  on_failure = "continue"
+
+  [[pipelines.steps]]
+  name = "summary"
+  commands = [
+    "echo '✅ All templates tested'"
+  ]
+
+# Pipeline: Test changed templates
+[[pipelines]]
+name = "test-changed"
+
+  [[pipelines.steps]]
+  name = "detect-changes"
+  commands = [
+    "echo '🔍 Detecting changed templates'",
+    "bash scripts/detect-changes.sh"
+  ]
+
+  [[pipelines.steps]]
+  name = "test-changed-templates"
+  commands = [
+    "bash scripts/test-changed.sh"
+  ]
+
+# Pipeline: Cleanup all artifacts
+[[pipelines]]
+name = "cleanup"
+
+  [[pipelines.steps]]
+  name = "stop-containers"
+  commands = [
+    "echo '🛑 Stopping test containers'",
+    '''
+    docker rm -f $(docker container ls -a -f "label=test-container" -q) 2>/dev/null || true
+    '''
+  ]
+  on_failure = "continue"
+
+  [[pipelines.steps]]
+  name = "remove-temp-dirs"
+  commands = [
+    "echo '🗑️  Removing temporary directories'",
+    "rm -rf /tmp/arch-base /tmp/arch-webtop 2>/dev/null || true"
+  ]
+  on_failure = "continue"
+
+  [[pipelines.steps]]
+  name = "prune-images"
+  commands = [
+    "echo '🧹 Pruning unused Docker images'",
+    "docker image prune -f --filter 'label=test-container' 2>/dev/null || true"
+  ]
+  on_failure = "continue"
+
+  [[pipelines.steps]]
+  name = "done"
+  commands = [
+    "echo '✅ Cleanup completed'"
+  ]
