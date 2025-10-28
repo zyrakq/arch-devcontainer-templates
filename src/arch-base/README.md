@@ -205,7 +205,10 @@ sudo pacman-key --refresh-keys
 
 ## 📄 License
 
-MIT License - see [LICENSE](https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE)
+This project is dual-licensed under:
+
+- [Apache License 2.0](https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE-APACHE)
+- [MIT License](https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE-MIT)
 
 ---
 
