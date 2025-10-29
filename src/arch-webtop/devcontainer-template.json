@@ -2,22 +2,10 @@
     "id": "arch-webtop",
     "version": "1.0.0",
     "name": "Arch Linux Desktop (WebTop)",
-    "description": "A development container with Arch Linux desktop environment using LinuxServer.io images with web-based GUI access",
+    "description": "A development container with Arch Linux desktop environment using pre-built images with web-based GUI access",
     "documentationURL": "https://github.com/zyrakq/devcontainer-templates/tree/main/src/arch-webtop",
     "licenseURL": "https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE",
     "options": {
-        "baseImage": {
-            "type": "string",
-            "enum": [
-                "ghcr.io/linuxserver/baseimage-kasmvnc:arch",
-                "lscr.io/linuxserver/webtop:arch-kde",
-                "lscr.io/linuxserver/webtop:arch-i3",
-                "lscr.io/linuxserver/webtop:arch-mate",
-                "lscr.io/linuxserver/webtop:arch-xfce"
-            ],
-            "default": "lscr.io/linuxserver/webtop:arch-kde",
-            "description": "Base image for the container (KasmVNC, KDE, i3, MATE, or XFCE)"
-        },
         "projectName": {
             "type": "string",
             "default": "my-project",

@@ -10,24 +10,45 @@ A collection of templates for VS Code Dev Containers, designed for quick develop
 4. 🔍 In the search field, enter: `ghcr.io/zyrakq/arch-devcontainer-templates/arch-base` or `ghcr.io/zyrakq/arch-devcontainer-templates/arch-webtop`
 5. ✅ Select the desired template from the list
 
+## 🐳 Pre-built Images
+
+These templates use pre-built Docker images for faster container startup and consistent environments.
+
+### Available Image Repositories
+
+- **[zyrakq/arch-devcontainer-images](https://github.com/zyrakq/arch-devcontainer-images)** - Pre-built Arch Linux images with various tools and desktop environments (used by default)
+- **[bartventer/devcontainer-images](https://github.com/bartventer/devcontainer-images)** - Comprehensive collection of Dev Container images with Arch Linux support
+
+Both repositories provide daily-built images with the latest packages and security updates.
+
+### Why Pre-built Images?
+
+- ⚡ **Faster startup** - No need to build images from scratch
+- ✅ **Tested** - All images pass automated tests before publishing
+- 🎯 **Specialized** - Choose images with exactly the tools you need
+
+You can easily switch between images by editing the `image` field in `.devcontainer/devcontainer.json`.
+
 ## 📦 Available Templates
 
 ### 🏗️ arch-base
 
-Base template based on Arch Linux with:
+Base template using pre-built Arch Linux images with:
 
-- 🐧 Minimal Arch Linux base image
-- 🔧 DevContainer features for modular functionality
+- 🐳 Pre-built image with common development tools
+- 🚀 Fast container startup (no build required)
 - 💾 Separate volumes for home directory and workspace
 - 🔒 Custom network isolation
+- 🔧 Multiple variants available (base, languages, Docker support)
 
 ### 🖥️ arch-webtop
 
-Desktop template based on LinuxServer.io images with:
+Desktop template using pre-built Arch Linux desktop images with:
 
+- 🐳 Pre-built images with desktop environments
 - 🌐 Web-based GUI access via browser (port 3000)
 - 🖥️ 5 desktop environments: KDE, i3, MATE, XFCE, or terminal-only (kasmvnc)
-- 🐧 Arch Linux base with LinuxServer.io optimizations
+- 🚀 Fast container startup with pre-configured desktop
 - 👤 User `abc` with HOME at `/config`
 - 🔧 PUID/PGID support for proper file permissions
 
@@ -61,10 +82,11 @@ When using the template, you'll be prompted to specify:
 
 ### arch-webtop
 
-- 🎨 **Desktop Environment**: Choose from kasmvnc, kde, i3, mate, or xfce
 - 📝 **Project Name**: Project name (used for container and network names)
 - 🏷️ **Title**: Title displayed in the web interface
 - 🕐 **Timezone**: Timezone for the container (e.g., Europe/London, America/New_York)
+
+> **Note**: Desktop environment is now selected by changing the `image` in `.devcontainer/devcontainer.json`. See template README for available options.
 
 ## 📁 Template Structure
 
@@ -99,11 +121,12 @@ After creating the .devcontainer configuration:
 
 ## 🔗 Related Projects
 
-This project was inspired by and borrows concepts from:
+### DevContainer Features
 
-- [bartventer/devcontainer-images](https://github.com/bartventer/devcontainer-images/) - Comprehensive collection of Dev Container images and features
-- [bartventer/arch-devcontainer-features](https://github.com/bartventer/arch-devcontainer-features/) - DevContainer features for Arch Linux by bartventer
-- [zyrakq/arch-devcontainer-features](https://github.com/zyrakq/arch-devcontainer-features/) - Additional DevContainer features for Arch Linux
+- **[bartventer/arch-devcontainer-features](https://github.com/bartventer/arch-devcontainer-features/)** - DevContainer features for Arch Linux by bartventer
+- **[zyrakq/arch-devcontainer-features](https://github.com/zyrakq/arch-devcontainer-features/)** - Additional DevContainer features for Arch Linux
+
+This project was inspired by and borrows concepts from the above repositories.
 
 ## 📄 License
 

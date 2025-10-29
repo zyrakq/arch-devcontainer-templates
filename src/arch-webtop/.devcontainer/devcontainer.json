@@ -1,12 +1,14 @@
 {
     "name": "${templateOption:projectName} Desktop (WebTop)",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": ".",
-        "args": {
-            "BASE_IMAGE": "${templateOption:baseImage}"
-        }
-    },
+    // Pre-built image from https://github.com/zyrakq/arch-devcontainer-images
+    // See full list of available images at: https://github.com/zyrakq/arch-devcontainer-images#available-images
+    // You can replace this with any image from arch-webtop families:
+    // - arch-webtop-kasmvnc (terminal-only)
+    // - arch-webtop-kde (KDE Plasma)
+    // - arch-webtop-i3 (i3 window manager)
+    // - arch-webtop-mate (MATE desktop)
+    // - arch-webtop-xfce (XFCE desktop)
+    "image": "ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-kde-common:latest",
     "workspaceFolder": "/workspace/${templateOption:projectName}",
     "workspaceMount": "source=${templateOption:projectName}-workspace,target=/workspace/${templateOption:projectName},type=volume",
     "mounts": [
@@ -31,15 +33,6 @@
         "seccomp=unconfined",
         "--shm-size=1gb"
     ],
-    "features": {
-        "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
-            "username": "abc",
-            "additionalPackages": "base-devel",
-            "installZsh": true,
-            "installOhMyZsh": true,
-            "configureZshAsDefaultShell": true
-        }
-    },
     "initializeCommand": [
         "bash",
         "-c",

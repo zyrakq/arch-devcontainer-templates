@@ -1,12 +1,9 @@
 {
     "name": "${templateOption:projectName} Workspace (Archlinux)",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": ".",
-        "args": {
-            "VARIANT": "latest"
-        }
-    },
+    // Pre-built image from https://github.com/zyrakq/arch-devcontainer-images
+    // See full list of available images at: https://github.com/zyrakq/arch-devcontainer-images#available-images
+    // You can replace this with any image from the arch-base family (base, lang, dind, dood variants)
+    "image": "ghcr.io/zyrakq/arch-devcontainer-images/arch-base-common:latest",
     "workspaceFolder": "/workspace/${templateOption:projectName}",
     "workspaceMount": "source=${templateOption:projectName}-workspace,target=/workspace/${templateOption:projectName},type=volume",
     "mounts": [
@@ -14,20 +11,13 @@
     ],
     "remoteUser": "vscode",
     "runArgs": [
-        "--name", "${templateOption:projectName}-workspace",
+        "--name",
+        "${templateOption:projectName}-workspace",
         "--network=${templateOption:projectName}-workspace-network"
-    
     ],
-    "features": {
-        "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
-            "username": "vscode",
-            "additionalPackages": "base-devel",
-            "installZsh": true,
-            "installOhMyZsh": true,
-            "configureZshAsDefaultShell": true
-        }
-    },
     "initializeCommand": [
-        "bash", "-c", "docker network ls | grep -q ${templateOption:projectName}-workspace-network || docker network create ${templateOption:projectName}-workspace-network"
+        "bash",
+        "-c",
+        "docker network ls | grep -q ${templateOption:projectName}-workspace-network || docker network create ${templateOption:projectName}-workspace-network"
     ]
 }
