@@ -67,8 +67,10 @@ Desktop template using pre-built Arch Linux desktop images with:
 | 📦 yay | `ghcr.io/zyrakq/arch-devcontainer-features/yay` |
 | 🎨 chaotic-aur | `ghcr.io/zyrakq/arch-devcontainer-features/chaotic-aur` |
 | 📥 clone-repo | `ghcr.io/zyrakq/arch-devcontainer-features/clone-repo` |
+| 🍞 bun | `ghcr.io/zyrakq/arch-devcontainer-features/bun` |
 | 📦 node | `ghcr.io/zyrakq/arch-devcontainer-features/node` |
 | 🦀 rust | `ghcr.io/zyrakq/arch-devcontainer-features/rust` |
+| 🦀 rust-bin | `ghcr.io/zyrakq/arch-devcontainer-features/rust-bin` |
 | 🔷 dotnet | `ghcr.io/zyrakq/arch-devcontainer-features/dotnet` |
 | 🔷 dotnet-bin | `ghcr.io/zyrakq/arch-devcontainer-features/dotnet-bin` |
 

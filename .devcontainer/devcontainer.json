@@ -1,12 +1,6 @@
 {
     "name": "arch-devcontainer-templates Workspace (Archlinux)",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": ".",
-        "args": {
-            "VARIANT": "latest"
-        }
-    },
+    "image": "ghcr.io/zyrakq/arch-devcontainer-images/arch-base-common:latest",
     "workspaceFolder": "/workspace/arch-devcontainer-templates",
     "workspaceMount": "source=arch-devcontainer-templates-workspace,target=/workspace/arch-devcontainer-templates,type=volume",
     "mounts": [
@@ -19,13 +13,6 @@
         "--network=arch-devcontainer-templates-workspace-network"
     ],
     "features": {
-        "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
-            "username": "vscode",
-            "additionalPackages": "base-devel",
-            "installZsh": true,
-            "installOhMyZsh": true,
-            "configureZshAsDefaultShell": true
-        },
         "ghcr.io/bartventer/arch-devcontainer-features/docker-in-docker": {},
         "ghcr.io/zyrakq/arch-devcontainer-features/yay:1": {
             "installPackages": "act-bin"
@@ -54,7 +41,7 @@
                 "eamodio.gitlens",
                 "codezombiech.gitignore",
                 // AI Assistant
-                "kilocode.kilo-code"
+                "saoudrizwan.claude-dev"
             ]
         }
     },

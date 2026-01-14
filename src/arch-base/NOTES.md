@@ -23,13 +23,6 @@ You can change the image in `.devcontainer/devcontainer.json` to use different v
 - `ghcr.io/zyrakq/arch-devcontainer-images/arch-base:latest` - Minimal base
 - `ghcr.io/zyrakq/arch-devcontainer-images/arch-base-common:latest` - With common-utils (default)
 
-**Language-specific**:
-
-- `ghcr.io/zyrakq/arch-devcontainer-images/arch-base-node:latest` - Node.js
-- `ghcr.io/zyrakq/arch-devcontainer-images/arch-base-rust:latest` - Rust
-- `ghcr.io/zyrakq/arch-devcontainer-images/arch-base-go:latest` - Go
-- `ghcr.io/zyrakq/arch-devcontainer-images/arch-base-dotnet:latest` - .NET
-
 **Docker variants**:
 
 - `ghcr.io/zyrakq/arch-devcontainer-images/arch-base-dind:latest` - Docker-in-Docker

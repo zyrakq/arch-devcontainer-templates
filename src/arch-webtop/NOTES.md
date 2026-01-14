@@ -22,8 +22,6 @@ You can change the image in `.devcontainer/devcontainer.json` to use different d
 
 - `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-kde:latest` - Base KDE
 - `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-kde-common:latest` - KDE with common-utils
-- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-kde-node:latest` - KDE + Node.js
-- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-kde-rust:latest` - KDE + Rust
 
 **i3 Window Manager**:
 
@@ -45,7 +43,7 @@ You can change the image in `.devcontainer/devcontainer.json` to use different d
 - `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-kasmvnc:latest` - Base KasmVNC
 - `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-kasmvnc-common:latest` - KasmVNC with common-utils
 
-See [full list of images](https://github.com/zyrakq/arch-devcontainer-images#available-images) for all available variants including Docker-in-Docker and language-specific images.
+See [full list of images](https://github.com/zyrakq/arch-devcontainer-images#available-images) for all available variants including Docker-in-Docker images.
 
 ### Using Custom Dockerfile
 
