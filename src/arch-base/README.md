@@ -13,7 +13,70 @@ A development container based on Arch Linux with Docker, Git, and essential tool
 
 ## 📖 Overview
 
-The **Arch Linux Base** template provides a minimalist yet powerful development environment based on Arch Linux. This template is ideal for developers who prefer flexibility and control over their development environment.
+The **Arch Linux Base** template provides a minimalist yet powerful development environment based on Arch Linux. This template uses pre-built images for faster container startup and consistent environments. It is ideal for developers who prefer flexibility and control over their development environment.
+
+## 🐳 Pre-built Images
+
+This template uses pre-built images from [arch-devcontainer-images](https://github.com/zyrakq/arch-devcontainer-images).
+
+By default, it uses `arch-base-common` which includes:
+
+- Common development tools (git, curl, wget, etc.)
+- Zsh with Oh My Zsh
+- Base development packages
+
+### Available Image Variants
+
+You can change the image in `.devcontainer/devcontainer.json` to use different variants:
+
+**Base images**:
+
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-base:latest` - Minimal base
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-base-common:latest` - With common-utils (default)
+
+**Docker variants**:
+
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-base-dind:latest` - Docker-in-Docker
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-base-dood:latest` - Docker-outside-of-Docker
+
+See [full list of images](https://github.com/zyrakq/arch-devcontainer-images#available-images) for all available variants.
+
+### Using Custom Dockerfile
+
+If you need to customize the image further, you can switch back to using a Dockerfile:
+
+Create a `Dockerfile` in `.devcontainer/` directory:
+
+```dockerfile
+ARG VARIANT="latest"
+FROM docker.io/archlinux/archlinux:${VARIANT}
+
+# Adjust directory permissions
+RUN chmod 555 /srv/ftp && \
+    chmod 755 /usr/share/polkit-1/rules.d/
+
+# Initialize pacman keyring and upgrade system
+RUN pacman-key --init && \
+    pacman-key --populate archlinux && \
+    pacman -Sy --needed --noconfirm --disable-download-timeout archlinux-keyring && \
+    pacman -Su --noconfirm --disable-download-timeout
+```
+
+Update `.devcontainer/devcontainer.json` to use the Dockerfile:
+
+```json
+{
+    "name": "${templateOption:projectName} Workspace (Archlinux)",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".",
+        "args": {
+            "VARIANT": "latest"
+        }
+    },
+    // ... rest of configuration
+}
+```
 
 ## ⚡ Features
 
@@ -199,9 +262,12 @@ sudo pacman-key --refresh-keys
   - **[Arch Linux Desktop](../arch-webtop/NOTES.md)** - Full desktop environment with web access
 - � **Dev Containers**: [Official Documentation](https://containers.dev/)
 - 🔗 **Related Projects**:
-  - [bartventer/devcontainer-images](https://github.com/bartventer/devcontainer-images/) - Comprehensive collection of Dev Container images and features
-  - [bartventer/arch-devcontainer-features](https://github.com/bartventer/arch-devcontainer-features/) - DevContainer features for Arch Linux by bartventer
-  - [zyrakq/arch-devcontainer-features](https://github.com/zyrakq/arch-devcontainer-features/) - Additional DevContainer features for Arch Linux
+  - **Pre-built Images**:
+    - [zyrakq/arch-devcontainer-images](https://github.com/zyrakq/arch-devcontainer-images) - Pre-built Arch Linux images used by this template
+    - [bartventer/devcontainer-images](https://github.com/bartventer/devcontainer-images/) - Alternative pre-built images with Arch Linux support
+  - **DevContainer Features**:
+    - [bartventer/arch-devcontainer-features](https://github.com/bartventer/arch-devcontainer-features/) - DevContainer features for Arch Linux by bartventer
+    - [zyrakq/arch-devcontainer-features](https://github.com/zyrakq/arch-devcontainer-features/) - Additional DevContainer features for Arch Linux
 
 ## 📄 License
 
@@ -209,6 +275,7 @@ This project is dual-licensed under:
 
 - [Apache License 2.0](https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE-APACHE)
 - [MIT License](https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE-MIT)
+
 
 ---
 
