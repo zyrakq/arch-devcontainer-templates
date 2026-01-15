@@ -1,13 +1,12 @@
 
 # Arch Linux Desktop (WebTop) (arch-webtop)
 
-A development container with Arch Linux desktop environment using LinuxServer.io images with web-based GUI access
+A development container with Arch Linux desktop environment using pre-built images with web-based GUI access
 
 ## Options
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| baseImage | Base image for the container (KasmVNC, KDE, i3, MATE, or XFCE) | string | lscr.io/linuxserver/webtop:arch-kde |
 | projectName | Project name (used for container and network names) | string | my-project |
 | title | Title displayed in the web interface | string | Arch Linux Desktop |
 | timezone | Timezone for the container (e.g., Europe/London, America/New_York) | string | Etc/UTC |
@@ -16,7 +15,86 @@ A development container with Arch Linux desktop environment using LinuxServer.io
 
 ## 📖 Overview
 
-The **Arch Linux with Web Desktop** template provides a powerful development environment with full desktop experience accessible through a web browser. Based on LinuxServer.io images, this template offers multiple desktop environments with web-based GUI access, making it perfect for remote development, GUI applications testing, and full desktop workflows.
+The **Arch Linux with Web Desktop** template provides a powerful development environment with full desktop experience accessible through a web browser. This template uses pre-built images for faster container startup and consistent environments. It offers multiple desktop environments with web-based GUI access, making it perfect for remote development, GUI applications testing, and full desktop workflows.
+
+## 🐳 Pre-built Images
+
+This template uses pre-built images from [arch-devcontainer-images](https://github.com/zyrakq/arch-devcontainer-images).
+
+By default, it uses `arch-webtop-kde-common` which includes:
+
+- KDE Plasma desktop environment
+- Common development tools
+- Web-based GUI access on port 3000
+
+### Available Desktop Environments
+
+You can change the image in `.devcontainer/devcontainer.json` to use different desktop environments:
+
+**KDE Plasma** (default):
+
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-kde:latest` - Base KDE
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-kde-common:latest` - KDE with common-utils
+
+**i3 Window Manager**:
+
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-i3:latest` - Base i3
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-i3-common:latest` - i3 with common-utils
+
+**MATE Desktop**:
+
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-mate:latest` - Base MATE
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-mate-common:latest` - MATE with common-utils
+
+**XFCE Desktop**:
+
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-xfce:latest` - Base XFCE
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-xfce-common:latest` - XFCE with common-utils
+
+**KasmVNC** (terminal-only):
+
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-kasmvnc:latest` - Base KasmVNC
+- `ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-kasmvnc-common:latest` - KasmVNC with common-utils
+
+See [full list of images](https://github.com/zyrakq/arch-devcontainer-images#available-images) for all available variants including Docker-in-Docker images.
+
+### Using Custom Dockerfile
+
+If you need to customize the image further, you can switch back to using a Dockerfile:
+
+Create a `Dockerfile` in `.devcontainer/` directory:
+
+```dockerfile
+ARG BASE_IMAGE="lscr.io/linuxserver/webtop:arch-kde"
+
+FROM ${BASE_IMAGE}
+
+# Adjust directory permissions
+RUN chmod 555 /srv/ftp && \
+    chmod 755 /usr/share/polkit-1/rules.d/
+
+# Initialize pacman keyring and upgrade system
+RUN pacman-key --init && \
+    pacman-key --populate archlinux && \
+    pacman -Sy --needed --noconfirm --disable-download-timeout archlinux-keyring && \
+    pacman -Su --noconfirm --disable-download-timeout
+```
+
+Update `.devcontainer/devcontainer.json` to use the Dockerfile:
+
+```json
+{
+    "name": "${templateOption:projectName} Desktop (WebTop)",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".",
+        "args": {
+            "BASE_IMAGE": "ghcr.io/linuxserver/baseimage-kasmvnc:arch"
+        }
+    },
+    // ... rest of configuration
+}
+```
 
 ## ⚡ Features
 
@@ -67,24 +145,6 @@ The template supports Dev Container Features for extending functionality:
 **Note**: All features work with LinuxServer.io base images. Features are configured for user `abc` with HOME directory `/config`.
 
 ## ⚙️ Configuration Parameters
-
-### 🎨 baseImage
-
-- 🔤 **Type**: string (enum)
-- 🎯 **Default**: "lscr.io/linuxserver/webtop:arch-kde"
-- 📋 **Options**:
-  - `ghcr.io/linuxserver/baseimage-kasmvnc:arch` (KasmVNC)
-  - `lscr.io/linuxserver/webtop:arch-kde` (KDE Desktop)
-  - `lscr.io/linuxserver/webtop:arch-i3` (i3 Window Manager)
-  - `lscr.io/linuxserver/webtop:arch-mate` (MATE Desktop)
-  - `lscr.io/linuxserver/webtop:arch-xfce` (XFCE Desktop)
-- 📝 **Description**: Base image for the container (KasmVNC, KDE, i3, MATE, or XFCE)
-
-```json
-{
-  "baseImage": "lscr.io/linuxserver/webtop:arch-kde"
-}
-```
 
 ### 📝 projectName
 
@@ -151,88 +211,34 @@ To add this template to your VS Code project:
 3. 📋 Choose "Show All Definitions..."
 4. 🔍 In the search field, enter: `ghcr.io/zyrakq/arch-devcontainer-templates/arch-webtop`
 5. ✅ Select the desired template from the list
-6. 🎨 Choose your preferred desktop environment
+6. 🎨 (Optional) Change the `image` in `.devcontainer/devcontainer.json` to use a different desktop environment
 
 ## 💡 Usage Examples
 
-### 🔷 KDE Desktop with Full Development Stack
+### 🔷 Switching to Different Desktop Environment
+
+To use a different desktop environment, simply change the `image` in `.devcontainer/devcontainer.json`:
 
 ```json
 {
-  "baseImage": "lscr.io/linuxserver/webtop:arch-kde",
-  "projectName": "kde-dev-environment",
-  "title": "KDE Development Desktop",
-  "timezone": "America/New_York",
+  "name": "${templateOption:projectName} Desktop (WebTop)",
+  "image": "ghcr.io/zyrakq/arch-devcontainer-images/arch-webtop-i3-common:latest",
+  // ... rest of configuration
+}
+```
+
+### 🔧 Adding Development Features
+
+You can add additional features to customize your environment:
+
+```json
+{
   "features": {
-    "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
-      "username": "abc"
-    },
     "ghcr.io/zyrakq/arch-devcontainer-features/yay:latest": {},
     "ghcr.io/devcontainers/features/docker-in-docker:latest": {},
     "ghcr.io/devcontainers/features/node:latest": {
       "version": "18"
-    },
-    "ghcr.io/bartventer/arch-devcontainer-features/go:latest": {
-      "version": "1.21"
     }
-  }
-}
-```
-
-### ⚡ Lightweight i3 with Essential Tools
-
-```json
-{
-  "baseImage": "lscr.io/linuxserver/webtop:arch-i3",
-  "projectName": "minimal-desktop",
-  "title": "i3 Tiling Desktop",
-  "timezone": "Europe/Berlin",
-  "features": {
-    "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
-      "username": "abc"
-    },
-    "ghcr.io/zyrakq/arch-devcontainer-features/yay:latest": {},
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:latest": {}
-  }
-}
-```
-
-### 🌐 Web-Optimized KasmVNC with Cloud Tools
-
-```json
-{
-  "baseImage": "ghcr.io/linuxserver/baseimage-kasmvnc:arch",
-  "projectName": "web-desktop",
-  "title": "Remote Web Desktop",
-  "timezone": "Asia/Tokyo",
-  "features": {
-    "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
-      "username": "abc"
-    },
-    "ghcr.io/devcontainers/features/aws-cli:latest": {},
-    "ghcr.io/devcontainers/features/azure-cli:latest": {},
-    "ghcr.io/bartventer/arch-devcontainer-features/terraform:latest": {}
-  }
-}
-```
-
-### 🎨 XFCE with GUI Development Tools
-
-```json
-{
-  "baseImage": "lscr.io/linuxserver/webtop:arch-xfce",
-  "projectName": "gui-dev-desktop",
-  "title": "XFCE GUI Development",
-  "timezone": "Europe/London",
-  "features": {
-    "ghcr.io/bartventer/arch-devcontainer-features/common-utils:1": {
-      "username": "abc"
-    },
-    "ghcr.io/zyrakq/arch-devcontainer-features/yay:latest": {},
-    "ghcr.io/devcontainers/features/node:latest": {
-      "version": "20"
-    },
-    "ghcr.io/bartventer/arch-devcontainer-features/dotnet:latest": {}
   }
 }
 ```
@@ -455,20 +461,6 @@ sudo pacman -S libreoffice-fresh
 }
 ```
 
-### 🔧 Adding Development Features
-
-```json
-{
-  "features": {
-    "ghcr.io/zyrakq/arch-devcontainer-features/yay:latest": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:latest": {},
-    "ghcr.io/devcontainers/features/node:latest": {
-      "version": "18"
-    }
-  }
-}
-```
-
 ## 🤝 Support and Community
 
 - 📚 **Documentation**: [GitHub Repository](https://github.com/zyrakq/devcontainer-templates)
@@ -485,9 +477,12 @@ sudo pacman -S libreoffice-fresh
   - [KasmVNC](https://kasmweb.com/) - Web-based VNC
 - 🐳 **Dev Containers**: [Official Documentation](https://containers.dev/)
 - 🔗 **Related Projects**:
-  - [LinuxServer.io Images](https://github.com/linuxserver) - Container images used as base
-  - [bartventer/arch-devcontainer-features](https://github.com/bartventer/arch-devcontainer-features/) - Additional DevContainer features
-  - [zyrakq/arch-devcontainer-features](https://github.com/zyrakq/arch-devcontainer-features/) - Arch-specific DevContainer features
+  - **Pre-built Images**:
+    - [zyrakq/arch-devcontainer-images](https://github.com/zyrakq/arch-devcontainer-images) - Pre-built Arch Linux images used by this template
+    - [LinuxServer.io Images](https://github.com/linuxserver) - Base container images
+  - **DevContainer Features**:
+    - [bartventer/arch-devcontainer-features](https://github.com/bartventer/arch-devcontainer-features/) - Additional DevContainer features
+    - [zyrakq/arch-devcontainer-features](https://github.com/zyrakq/arch-devcontainer-features/) - Arch-specific DevContainer features
 
 ## 📄 License
 
@@ -497,6 +492,7 @@ This DevContainer template configuration is dual-licensed under:
 - [MIT License](https://github.com/zyrakq/devcontainer-templates/blob/main/LICENSE-MIT)
 
 **Note**: The LinuxServer.io Docker images used by this template are licensed under GPL-3.0. When you use this template, the resulting container will be subject to GPL-3.0 terms. See [LinuxServer.io License](https://github.com/linuxserver/docker-webtop/blob/master/LICENSE) for details.
+
 
 ---
 
